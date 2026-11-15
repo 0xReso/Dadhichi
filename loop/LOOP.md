@@ -19,7 +19,7 @@ The rules that make the library trustworthy, because a prompt is only worth keep
 - A released version is never edited; a fix is a new version. Promote only when the head says the new version passes more checks and fails none the old one passed.
 - Every failure goes into that pattern's `failures.md`, one line each.
 - Do not use real people's private data or invent quotes or statistics in test inputs.
-- Stay inside this project folder. Do not install software, change settings, push to remotes, or contact anyone; the runner script handles git push.
+- Stay inside this project folder. Do not install software, change settings, or contact anyone. On the Mac, the runner script handles git push; in a cloud session (no runner), push your commit to the session's branch at the end.
 
 Before you finish:
 1. Add a line to `CHANGELOG.md` under today's date for anything built, tested or decided.
