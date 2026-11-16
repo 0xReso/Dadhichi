@@ -13,3 +13,7 @@
 - Real-use test: Alexa for Shopping article (sources/alexa-for-shopping.md as SOURCE). Head verdict: not publishable as is; 5 must-fix accuracy sentences, all where the writer's inferences read as fact. New failure logged: no rule for mixed-confidence sources.
 - articles/alexa-for-shopping/: corrected article (head's must-fix and should-fix edits applied) with 3 SVG flowcharts and an HTML reading view.
 - modifiers/figures.md 0.1.0 (draft): optional modifier that lets the explainer add up to three Mermaid flowcharts, prose-complete, phone-sized, dashed for inferred steps. Not yet tested.
+
+## 2026-11-16
+- MASTER_PLAN.md: plan for the open-source library. Field research, mental model, ten-step prompt workflow, learnings from the explainer's failure log, catalogue of five packs (core, developer, agent, meta, safety), open-source setup, eight-phase roadmap, six decisions for the owner. Plan only; nothing in it is built.
+- README.md: first README. States the early status, how to use the one draft prompt, how prompts get made, and a repository map.
