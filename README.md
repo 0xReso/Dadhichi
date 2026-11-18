@@ -1,81 +1,41 @@
 # Dadhichi
 
-**A library of reusable prompts with a record of how well each one works.**
+**Reusable prompts for writing explanations and checking whether they work.** Each prompt comes with examples, test inputs, and a record of where it succeeds or breaks. The goal is to let you choose a prompt for a particular reader and job, then see what evidence supports that choice.
 
-Suppose you ask for an explanation of Kafka consumer groups to read on the train. Halfway down the first screen, you meet the word *partition*. The definition comes three paragraphs later. The explanation may be technically accurate, but you have already had to stop reading. For a commuter with no browser open, that is a failure we can test for.
+[Try a prompt](#try-the-explainer) · [Read a finished article](articles/alexa-for-shopping/article.md) · [Resume development](loop/STATE.md)
 
-Dadhichi starts with moments like that. We describe the job, the person who needs the result, and what a good answer lets them do. Then we turn those expectations into checks, run the prompt on difficult inputs, and keep the outputs that tell us where it breaks. **Our goal is to let someone choose a prompt for a real job, see the evidence behind it, and adapt it to a different reader or field.**
+![The Explainer writes an article. The Rubric Writer defines what the reader needs. The Grader checks the article against those expectations and cites evidence.](docs/visuals/explainer-workflow.svg)
 
-[Try the explainer](#try-the-explainer) · [Explore the library](#the-library-today) · [Follow a version decision](#why-v040-is-still-the-explainer-to-try) · [See where this is going](#where-this-is-going)
+## Try the Explainer
 
-> **Picking up development?** Read the [current handoff](loop/STATE.md) for the last result and the next task. [Agent instructions](AGENTS.md)
+Imagine you know what a queue is. You want to understand what happens to an order when the worker processing it stops. You have ten minutes on a train and only your phone.
 
-## Try the explainer
+1. Copy the fenced prompt from the [Flow-Read Explainer v0.4.0](tests/pattern.explain/runs/v0.4.0/prompt.md).
+2. Replace `{TOPIC}` with **How Kafka consumer groups share work**. Replace `{NOTES}` with **I know what a queue is. Walk me through what happens to one order when a worker stops.** Delete `{SOURCE}` and leave its tags empty, or paste in source material.
+3. Paste the filled prompt into your model. Follow the order through the article. Can you tell what the next worker will read? Mark the first sentence where you need to scroll back or look up a term. That passage gives the next revision something concrete to fix.
 
-The **Flow-Read Explainer** writes an article you can read once, top to bottom, on a phone or e-reader. It introduces terms as you need them and carries a worked example through the explanation. You can try it by pasting Markdown into a model.
+For a source-backed example, see how the Alexa for Shopping article distinguishes Amazon’s published descriptions from a proposed architecture. [Read the article](articles/alexa-for-shopping/article.md) · [Inspect its sources](sources/alexa-for-shopping.md)
 
-1. Open the [promoted v0.4.0 explainer](tests/pattern.explain/runs/v0.4.0/prompt.md) and copy the prompt inside the fenced block.
-2. Replace the three placeholders using the example below. For an empty source, remove the placeholder and keep the surrounding tags.
-3. Paste the filled prompt into your model. As you read the article, notice the first place you need to scroll back, look something up, or guess what a term means. That moment makes a good test case.
+## Choose a prompt
 
-| Placeholder | Example |
-| --- | --- |
-| `{TOPIC}` | How Kafka consumer groups share work |
-| `{NOTES}` | I know what a queue is. I want to understand what happens when one consumer stops halfway through a batch. |
-| `{SOURCE}` | Leave empty for this example, or paste documentation you want the article to follow. |
-
-For a source-backed example, read the Alexa for Shopping article alongside its source pack. The pack distinguishes Amazon's product descriptions, published research, and an independently guessed architecture. The article has to preserve those distinctions even when it brings the pieces together in a single explanation. [Finished article](articles/alexa-for-shopping/article.md) · [Source pack](sources/alexa-for-shopping.md) · [Original grading](tests/pattern.explain/runs/v0.2.1-alexa/head-grading.md)
-
-## The library today
-
-As of **18 November 2026**, three prompts are available. A **promoted draft** is the version selected through comparison with its predecessor. The **tested** label records that a prompt met its acceptance criteria on a named model and test set.
-
-| Prompt | What you give it → what you get | Evidence |
+| Prompt | When to use it | What the tests found |
 | --- | --- | --- |
-| [Flow-Read Explainer v0.4.0](tests/pattern.explain/runs/v0.4.0/prompt.md) · promoted draft | A topic, optional source and reader notes → an article for a single linear read | Nine topics cover short definitions, complex mechanisms, a fictional tool, finance and mixed-confidence sources. [Version comparison](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md) |
-| [Grader v0.3.0](built/grade.md) · tested | An output and a rubric → a verdict for each check, backed by a quote, count or named omission | On Claude Sonnet, it reached 94.5% agreement across 82 checks and found all 10 deliberately planted faults. [Calibration report](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
-| [Rubric Writer v0.2.0](built/rubric.md) · draft | A job, optionally its reader, prompt and past failures → a table of checks and rules for scoring them | In eight of ten samples, one mistake could fail two checks. A missing consequence in a code review, for instance, could be counted twice. [Evaluation](tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md) |
+| [Flow-Read Explainer v0.4.0](tests/pattern.explain/runs/v0.4.0/prompt.md) | Turn a topic and reader notes into an article for one uninterrupted read. | **Promoted draft.** Kept after the nine-topic comparison below. A human phone-read is pending. |
+| [Rubric Writer v0.2.0](built/rubric.md) | Turn a job description into checks you can score. | **Draft.** Review for double counting. In 8 of 10 samples, one mistake could fail multiple checks. [Evaluation](tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md) |
+| [Grader v0.3.0](built/grade.md) | Give it an output and a rubric to get a verdict and evidence for each check. | **Tested on Claude Sonnet.** Recorded 94.5% agreement across 82 checks and caught all 10 planted faults. [Calibration](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
 
-The three prompts can work together. A writer defines what an explanation should achieve, uses the Rubric Writer to draft the checks, and inspects them for overlap. After generating an article, they give it and the rubric to a different model running the Grader. The saved evidence lets another person challenge a verdict or reproduce the comparison.
+## Why the earlier Explainer won
 
-## Why v0.4.0 is still the explainer to try
+We compared v0.4.0 and v0.4.2 on nine topics. Each version produced two articles per topic, for **36 articles**. The writer was `gpt-6.2-sol` and the grader was `gpt-6.2-astra`. For each topic and applicable check, the score below takes the worse of the two attempts.
 
-The v0.4.2 candidate produced fewer outright failures. Was it better for the reader? We ran both versions on the same nine inputs, twice per input, for **36 articles**. Every article had the same writer model (`gpt-6.2-sol`) and a separate grader model (`gpt-6.2-astra`). Each input contributed the worse of its two verdicts on each applicable check.
+![Pass, borderline and fail counts respectively: v0.4.0 scored 75, 14 and 18. The v0.4.2 candidate scored 73, 22 and 12.](docs/visuals/version-comparison.svg)
 
-| Version | Pass | Borderline | Fail |
-| --- | ---: | ---: | ---: |
-| v0.4.0 | **75** | 14 | 18 |
-| v0.4.2 | 73 | 22 | **12** |
+The candidate cut failures from 18 to 12, but it also lost two passes outright. In the cloud article, readers encountered *requests* before learning what the word meant in computing. Another article used *Kafka consumer groups* before explaining the phrase. Both passages asked the reader to interpret an example with information that came later.
 
-The project promotes a revision when it passes more checks and no previously passing check becomes a failure. Here, two checks moved from Pass to Fail. One cloud article used *requests* before explaining the computing meaning. One library article asked the reader to interpret *Kafka consumer groups* before explaining the phrase. **v0.4.0 remains the promoted draft.** The scorecard includes the individual grades, where the judge's interpretation was debatable, and the outstanding human phone-read. [Matched scorecard](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md) · [Current candidate](built/explain.commuter.it.md) · [Failure log](tests/pattern.explain/failures.md) · [Phone-read status](loop/STATE.md)
+**v0.4.0 remains the version to use.** Promotion requires more passes and zero changes from pass to fail. The individual grades show which topics improved and where the grader’s interpretation was debatable. [Read the matched scorecard](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md)
 
-## Where this is going
+## What we’re building toward
 
-The long-term design is a prompt engine that can take a request such as *“Explain bond duration to someone reading on the bus”* and assemble a brief from reusable parts.
+Today you copy an assembled Markdown prompt. The planned engine would let you specify the **task**, **reader**, and **domain** separately. For example, switching from Kafka to bond duration should preserve the commuter’s need for a linear explanation while drawing on finance-specific vocabulary and examples. A draft finance pack and frozen test prompt show how that combination works today. [Finance pack](domains/finance.md) · [Finance example](tests/pattern.explain/runs/v0.4.2-finance/prompt.md) · [Roadmap](MASTER_PLAN.md)
 
-```mermaid
-flowchart TD
-    K["Kernel · shared rules"] --> P["Assembled prompt"]
-    T["Task · explain a concept"] --> P
-    R["Reader · commuter on a phone"] --> P
-    D["Domain · finance"] --> P
-    M["Optional modifier · add figures"] -.-> P
-    P --> E["Run on test inputs and grade the outputs"]
-```
-
-The task determines the work. The reader determines how much background, time and attention the answer can assume. The domain supplies field knowledge. In the bond-duration test, for example, the commuter still needs a linear explanation, but the relevant vocabulary shifts from servers and requests to prices and interest rates. The repository already has a draft finance pack, frozen finance test prompts and an optional figures modifier. General-purpose assembly is a roadmap milestone. [Finance pack](domains/finance.md) · [Finance test prompt](tests/pattern.explain/runs/v0.4.2-finance/prompt.md) · [Figures modifier](modifiers/figures.md)
-
-The next milestones are to finish the explainer, demonstrate that readers and domains can be swapped independently, and strengthen the tools that generate and grade tests. The planned library then expands into developer work such as code review and diagnosis, agent instructions and handoffs, and checks for handling untrusted or uncertain source material. Each addition needs its own test inputs and acceptance criteria. [Master plan](MASTER_PLAN.md) · [System design](Dadhichi%20Master%20Prompt%20Library%20System%20Design.md)
-
-## Explore or contribute
-
-| If you want to… | Start here |
-| --- | --- |
-| Use the prompts or inspect real examples | [Assembled prompts](built/) · [Articles](articles/) |
-| Understand why a prompt changed | [Test suites and frozen runs](tests/) · [Changelog](CHANGELOG.md) |
-| Pick up development | [Current handoff](loop/STATE.md) · [Backlog](loop/BACKLOG.md) |
-| Understand how an unattended round works | [Round protocol](loop/LOOP.md) · [Runner](scripts/) · [Reviewer brief](.claude/agents/dadhichi-head.md) |
-
-The most useful contribution today is a reproducible failure. Open an issue with the prompt version, model, input, and the shortest passage that shows what went wrong. Say what the reader needed at that point. That gives the next revision a concrete case to beat.
-
-Formal contribution guidelines and the project licence are still open items in the [master plan](MASTER_PLAN.md).
+**Picking up the work?** Start at the [current handoff](loop/STATE.md). It records the last decision, outstanding checks, and the next experiment. The immediate task is to revise the Rubric Writer’s overlap check using the saved code-review and SQL failures. [Agent instructions](AGENTS.md) · [Backlog](loop/BACKLOG.md) · [Changelog](CHANGELOG.md)

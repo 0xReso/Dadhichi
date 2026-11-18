@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="330" viewBox="0 0 780 330" role="img" aria-labelledby="title desc">
+  <title id="title">How Dadhichi tests an explanation</title>
+  <desc id="desc">An explainer turns a reader's question into an article. A rubric writer turns the reader's needs into checks. A grader compares the two and cites evidence.</desc>
+  <rect width="780" height="330" rx="18" fill="#112e36"/>
+  <g font-family="Helvetica,Arial,sans-serif">
+    <text x="30" y="48" font-size="30" font-weight="700" fill="#fffaf0">Can I follow this on the train?</text>
+    <text x="30" y="82" font-size="19" fill="#d6e6e4">One reader’s goal shapes both the article and its test.</text>
+    <g fill="none" stroke="#8bcaba" stroke-width="3">
+      <path d="M460 149 H485 Q495 149 495 159 V205 H521 M460 264 H485 Q495 264 495 254 V205"/>
+      <path d="m512 198 9 7-9 7"/>
+    </g>
+    <rect x="30" y="108" width="430" height="84" rx="9" fill="#d4eee3"/>
+    <rect x="30" y="222" width="430" height="84" rx="9" fill="#f3dfae"/>
+    <rect x="530" y="153" width="222" height="108" rx="9" fill="#fffaf0"/>
+    <g fill="#17343a">
+      <g font-size="22" font-weight="700">
+        <text x="50" y="142">Explainer → Article</text>
+        <text x="50" y="256">Rubric Writer → Checks</text>
+        <text x="549" y="188">Grader → Verdict</text>
+      </g>
+      <g font-size="18">
+        <text x="50" y="172">Explain how Kafka workers share orders.</text>
+        <text x="50" y="286">Is each new term clear when it first appears?</text>
+        <text x="549" y="218">Quote the passage</text>
+        <text x="549" y="241">behind each score.</text>
+      </g>
+    </g>
+  </g>
+</svg>
