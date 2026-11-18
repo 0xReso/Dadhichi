@@ -1,8 +1,8 @@
 ---
 id: built.explain.commuter.it
 kind: built
-version: 0.2.1
-status: draft            # v0.1.0 failed checks 4-5; v0.2.0 fixed them; v0.2.1 applies head gate review
+version: 0.2.2
+status: draft            # v0.2.2 applies the head's v0.2.1 grading edits (simple tier, unknown tool, sections, pace, source confidence)
 job: Explain one IT concept so it is understood in a single linear read on an e-reader, with no lookups
 coordinates: explain / commuter / it
 inputs:
@@ -22,7 +22,11 @@ How to use: copy everything inside the block below, replace the three `{VARIABLE
 {SOURCE}
 </source>
 
-If the source block above is empty, work from your own knowledge. If it contains material, treat it as the authority for facts about the topic. You may reorder, compress, and leave out parts of it freely; your job is to make its core understood, not to cover everything it says. Where you add something the source does not say, keep it to well-established knowledge.
+If the source block above is empty, work from your own knowledge. If it contains material, treat it as the authority for facts about the topic. You may reorder, compress, and leave out parts of it freely; your job is to make its core understood, not to cover everything it says.
+
+A source can hold material at different levels of confidence, for example confirmed statements next to research, estimates, or someone's guess. When the source says how far a part can be trusted, carry that through to the page, because the reader cannot tell a fact from a guess unless the sentence says which it is. Build the mechanism and the running example from the confirmed parts. Present unconfirmed parts as what the source says they are, and say where they come from in the source's own terms. State that something is unknown or unpublished only when the source says so; where the source is merely silent, say that the material you were given does not cover it.
+
+Where you add something the source does not say, keep it to well-established knowledge and word it as general practice ("assistants of this kind usually...") rather than as a statement about this topic, so the reader can see which sentences rest on the source and which on you. This applies to "The whole picture" as much as to the body: a step you inferred stays marked as inferred there.
 
 <situation>
 You are writing for one reader. They will read your piece on a Kindle or a phone while travelling: on a bus, a train, in a queue. They read from top to bottom, once, in short sittings that can be cut off at any stop. They have no browser open, no second screen, no notebook, and nobody to ask. If a word, acronym, or idea has not been explained on the page by the time they meet it, it stays a hole for the rest of the read, and every hole costs them the thread.
@@ -41,7 +45,7 @@ After one linear read, the reader can say in their own words what the topic is, 
 <plan>
 Before writing anything, plan the piece. Do this privately, in your thinking if you have it. The reader sees only the finished article.
 
-1. Find the core. Write, for yourself, one sentence that says what the topic is and why it exists. Everything in the piece serves that sentence. If you cannot write it yet, work out what the topic really is before going further. If the topic name is ambiguous, choose the IT meaning most likely intended and make that clear in the opening line.
+1. Find the core. Write, for yourself, one sentence that says what the topic is and why it exists. Everything in the piece serves that sentence. If you cannot write it yet, work out what the topic really is before going further. If the topic name is ambiguous, choose the IT meaning most likely intended and make that clear in the opening line. If the topic is a specific named product, library, or tool, the source block is empty, and you cannot recall concrete facts about it that you would stand behind, say so in plain words in the first two sentences: you have no reliable knowledge of this tool and will not describe it. Then write a simple-size piece on the kind of thing it is said to be, attribute no feature, design, or vocabulary to the named tool, and close with three or four questions the reader can take to its documentation. Keep it short, because the reader will take everything written under the tool's name to be about the tool and cannot check it from a bus seat.
 
 2. List everything the reader must understand to reach the core: concepts, terms, acronyms, mechanisms, numbers. Be generous here; trimming comes next.
 
@@ -53,7 +57,7 @@ In-flow: ideas needed at one point only. Each is introduced in a clause or a sen
 Later: details that are true and interesting but not needed for the core, such as edge cases, history, variants, configuration options, and competing products. Most of these are left out. Keep at most four for the closing "Going further" section.
 When an idea could go in two tiers, choose the lighter one. A reader can live with a missing detail; they cannot live with a missing piece of the sentence they are reading.
 
-5. Apply the body test to every passage you plan to write: keep it in the body only if, without it, the reader could not do what the goal promises, which is to say what the topic is, why it exists, and how its mechanism works step by step, or would fall into the trap from step 8. Each step of the mechanism passes, together with the one worked case that shows it. A refinement of a step, an option, or a second case of a point already made does not. Configuration setting names, differences between versions or vendors, performance optimisations, alternative implementations, and history fail this test unless the core truly depends on them. Passages that fail go to "Going further" as one line each, or are dropped. This test matters most for deep topics, where an expert writer is most tempted to include everything they know.
+5. Apply the body test to every passage you plan to write: keep it in the body only if, without it, the reader could not do what the goal promises, which is to say what the topic is, why it exists, and how its mechanism works step by step, or would fall into the trap from step 8. Each step of the mechanism passes, together with the one worked case that shows it. For a simple topic the mechanism is a single exchange, so it passes as a few sentences, and a numbered walk-through, a second story of the same mistake, and neighbouring topics the reader did not ask about do not pass. A refinement of a step, an option, or a second case of a point already made does not. Configuration setting names, differences between versions or vendors, performance optimisations, alternative implementations, and history fail this test unless the core truly depends on them. Passages that fail go to "Going further" as one line each, or are dropped. This test matters most for deep topics, where an expert writer is most tempted to include everything they know.
 
 6. Order the path. Start with the problem, the situation that made someone build this, because a reader who feels the problem wants the solution. Then move from foundations to the mechanism to its consequences. Check that every step needs only what came before it.
 
@@ -61,7 +65,7 @@ When an idea could go in two tiers, choose the lighter one. A reader can live wi
 
 8. Name the trap. Identify the most common misunderstanding of this topic and decide where in the path it would naturally arise, so you can correct it at that point.
 
-9. Set a word budget: one number, decided now and held to. Size it to the topic, not to an idea of thoroughness. A simple concept, such as what a port number is, gets about 450 words and no chapters, never more than 600. A moderate one, such as how a domain name is turned into a server address, gets about 1,500, never more than 2,200. A deep one, such as how a language model generates text or how two computers set up an encrypted connection, gets about 3,500, never more than 4,500, split into chapters. Aim for the typical figure. The room between it and the upper limit is for a topic whose mechanism has more steps than usual; spend it only on passages that pass the body test, never on Later-tier material. Long source material does not make the piece long; it means there is more to cut. If the notes above set a length, follow them instead.
+9. Set a word budget: one number, decided now and held to. Size it to the topic, not to an idea of thoroughness, and judge the size from your core sentence in step 1, not from the length of your list in step 2, because a long list makes any topic look bigger than it is. A topic is simple when its core is one thing with one job: a single object or value and what is done with it, with no chain of several stages or several machines that the reader has to follow in order. What a port number is, what a file extension is, and what a checksum is are simple. A simple topic gets about 450 words, never more than 600, written as continuous prose with no headings and no "The whole picture" section. At that size the mechanism is told once, in a few sentences inside the running example. The ideas that surround it, such as how the thing is stored, how it is protected in transit, or what it is commonly confused with, get one clause each or one line in "Going further". A moderate one, such as how a domain name is turned into a server address, gets about 1,500, never more than 2,200. A deep one, such as how a language model generates text or how two computers set up an encrypted connection, gets about 3,500, never more than 4,500, split into chapters. Aim for the typical figure. The room between it and the upper limit is for a topic whose mechanism has more steps than usual; spend it only on passages that pass the body test, never on Later-tier material. Long source material does not make the piece long; it means there is more to cut. If the notes above set a length, follow them instead.
 </plan>
 
 <write>
@@ -81,7 +85,7 @@ Describe structure in words. The page will have no diagrams, tables, or links, s
 
 Use code only when the topic is itself about code. Keep it to a few short lines and explain each line in prose straight after, because e-readers wrap wide code badly and the reader cannot run it.
 
-When the piece is long enough for chapters, make each one readable in about five minutes, the gap between a few stops. Give each a plain, descriptive heading. Open every chapter after the first with a sentence or two that reminds the reader what they now hold, woven into the prose rather than labelled as a recap, so someone resuming after a break picks up the thread without scrolling back. Keep that reminder to two sentences at most. End each chapter with a single sentence that raises the question the next chapter answers, so there is a pull forward. Do not summarise a chapter at its end; the next chapter's opening already does that, and summarising at both ends repeats the same material twice.
+A moderate piece is divided into three to five sections and a deep piece into chapters, each under a "##" heading, and everything in this paragraph applies to both. Make each one readable in five minutes at most, the gap between a few stops. Give each a plain, descriptive heading. Open every chapter after the first with a sentence or two that reminds the reader what they now hold, woven into the prose rather than labelled as a recap, so someone resuming after a break picks up the thread without scrolling back. Keep that reminder to two sentences at most. End each chapter with a single sentence that raises the question the next chapter answers, so there is a pull forward. Do not summarise a chapter at its end; the next chapter's opening already does that, and summarising at both ends repeats the same material twice.
 
 Be accurate. Use the terminology a practitioner would use. Where behaviour differs between versions, vendors, or configurations, say so in one sentence instead of presenting one case as universal, and put the details, if they are worth keeping, in "Going further". If you are not confident about a detail, say so or leave it out. The reader cannot check you from a bus seat, which makes their trust the whole arrangement.
 
@@ -112,6 +116,7 @@ Security topics read best when the threat comes first: what an attacker could do
 Before answering, reread your draft the way the reader will: top to bottom, once, with no outside help. Fix anything that fails one of these.
 
 Every term, acronym, and named technology is explained before or at its first use.
+No paragraph hands the reader more than one new term. Where a paragraph names two or more, give each term its own paragraph at the point the piece first needs it, and drop any name the piece never uses again.
 No sentence relies on something that appears later, and no phrase inside a chapter points ahead to an explanation still to come. The single question that closes a chapter is the one exception, and it is sound only if nothing before it depended on the answer.
 Nothing the reader already knew is explained.
 Every passage passes the body test from your plan. Any that fails moves to "Going further" or is deleted.
@@ -121,7 +126,7 @@ The running example is used consistently and its numbers agree with each other.
 The common misconception is corrected where it arises.
 Each chapter, if there are chapters, can be picked up cold from its opening lines.
 Nothing needs a table, a link, an image, or wide code to make sense.
-Every technical claim is correct, and any uncertain point is marked as uncertain.
+Every technical claim is correct, and any uncertain point is marked as uncertain. If a source was given, every statement about the topic can be traced to it at the confidence the source gives it, and anything you added or inferred is worded as general practice or as inference, in the body and in "The whole picture".
 </check>
 
 <output>

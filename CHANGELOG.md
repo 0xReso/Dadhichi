@@ -17,3 +17,8 @@
 ## 2026-11-16
 - MASTER_PLAN.md: plan for the open-source library. Field research, mental model, ten-step prompt workflow, learnings from the explainer's failure log, catalogue of five packs (core, developer, agent, meta, safety), open-source setup, eight-phase roadmap, six decisions for the owner. Plan only; nothing in it is built.
 - README.md: first README. States the early status, how to use the one draft prompt, how prompts get made, and a repository map.
+
+## 2026-11-18
+- built/explain.commuter.it.md 0.2.2 (draft): applies the head's v0.2.1 grading edits verbatim (simple-tier criterion and size from the core sentence, size-aware body test, unknown-tool rule, sections for moderate pieces, pace rule in the self-check) and the two source-confidence edits from the Alexa grading. Frozen in tests/pattern.explain/runs/v0.2.2/prompt.md. Not yet gate-reviewed.
+- rubric: 11 split into 11a Complete / 11b Unhurried; new checks 12 Unknown topic and 13 Source confidence; check 6 covers any "##" section. inputs: input 7 capped at 1,700 words; Alexa source added as input 9.
+- Gate review not run: the head model is out of usage credits.

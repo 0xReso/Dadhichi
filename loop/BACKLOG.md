@@ -13,7 +13,7 @@ Each "build pattern X" item means the full cycle, done over several rounds:
 
 ## Stage 1 — finish the explainer
 
-- [ ] Explain v0.2.2: apply the five edits in `tests/pattern.explain/runs/v0.2.1/head-grading.md` and the two mixed-confidence edits in `tests/pattern.explain/runs/v0.2.1-alexa/head-grading.md`; split rubric check 11 into 11a/11b; add the unknown-tool check; give input 7 a length number.
+- [x] Explain v0.2.2: apply the five edits in `tests/pattern.explain/runs/v0.2.1/head-grading.md` and the two mixed-confidence edits in `tests/pattern.explain/runs/v0.2.1-alexa/head-grading.md`; split rubric check 11 into 11a/11b; add the unknown-tool check; give input 7 a length number.
 - [ ] Explain v0.2.2: head gate review, then test run on inputs 1 (three times), 2, 3, 4, 6, 8, plus the Alexa source.
 - [ ] Explain v0.2.2: head grading, promotion decision, failure log updated. Repeat with v0.2.3 if not promoted.
 - [ ] Figures modifier: test `modifiers/figures.md` with the explainer on inputs 2, 3 and Alexa; head grades the four figure checks.
