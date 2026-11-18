@@ -28,3 +28,6 @@
 - Test run v0.3.0 (9 outputs) graded by the head (on Opus): PROMOTE over v0.2.1, still draft. 60/15/7 vs 55/15/12 on shared cells, no Pass-to-Fail. Fixed: API-key size (3 of 3 samples), unknown tool, Raft log repair, Docker cap. Still failing: 11b pace (names and lists not counted as terms), 13 source confidence on Alexa (invented diagram origin again), cold second sections.
 - built/explain.commuter.it.md 0.3.1 (draft): the head's five v0.3.0 edits. failures.md: 8 new lines, 6 pending lines resolved.
 - Input 8 (bond duration, finance domain) run on v0.3.0: 1,955 words; not yet graded.
+- Test run v0.3.1 (9 outputs + input 8 on both versions) graded by the head (on Opus): NOT PROMOTED, a tie with v0.3.0 (70 Pass each on 94 shared cells; v0.3.1 has fewer Fails). All five edits fixed their targets; offset by new forward pointers, Docker growth (~1,940) and a named character. Input 8: the pattern generalises to finance; IT wording in the pattern sections noted for the split.
+- built/explain.commuter.it.md 0.4.0 (draft): 0.3.1 plus the head's five edits (one foundation per paragraph in plan step 4, named forward-pointer clauses, a reader note lowers the ceiling, keep source scope words and mark joins, "you" instead of a named person). Released version stays 0.3.0.
+- domains/finance.md 0.1.1: Advice paragraph rewritten as field knowledge.

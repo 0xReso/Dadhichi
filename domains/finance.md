@@ -1,8 +1,8 @@
 ---
 id: domain.finance
 kind: domain
-version: 0.1.0
-status: draft            # not yet tested; first use is explain input 8 (bond duration)
+version: 0.1.1
+status: draft            # 0.1.1: Advice paragraph rewritten as field knowledge, not a writing instruction (head, v0.3.1 grading)
 job: Field notes for personal and market finance, to fill the <domain> slot of any pattern
 verified_on: not yet verified
 ---
@@ -29,6 +29,6 @@ Scale. Rough figures worth carrying: a change of 0.01 percentage points is one b
 
 Change. Rates, prices, limits and product terms change daily or yearly. Any number tied to a date belongs with its date.
 
-Advice. Explaining how something works is not advice on what a particular person should do. Where a topic leads naturally to a decision, describe what the decision depends on rather than making it for the reader.
+Advice. How a financial product works is the same for everyone; whether it suits a particular person depends on their goals, time horizon, tax position and what else they hold. Regulators in many countries treat a personal recommendation differently from general information.
 </domain>
 ```
