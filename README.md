@@ -2,7 +2,7 @@
 
 A library of reusable prompts where every prompt comes with the evidence that it works: its test inputs, its pass/fail checks, the graded outputs, and the log of failures that shaped it.
 
-**Status: early.** One prompt exists and is still in testing. Nothing has been promoted to `tested` yet. The [master plan](MASTER_PLAN.md) describes what will be built and in what order.
+**Status: early.** One prompt is `tested` (the Grader); the explainer is close; more are in progress. The [master plan](MASTER_PLAN.md) describes what will be built and in what order.
 
 ## Why this exists
 
@@ -13,9 +13,19 @@ Most prompt collections are lists of text nobody has tested. You cannot tell whi
 - **Small on purpose.** About a dozen task patterns (explain, review, compare, diagnose...) are combined with reader profiles and domain packs, so one tested pattern serves many subjects.
 - **Dated.** Every prompt records the model and date it was last verified on, because prompts that work on one model can degrade on the next.
 
+## Scorecards
+
+| Prompt | Version | Status | Tested on | Result |
+| --- | --- | --- | --- | --- |
+| [Grader](built/grade.md) | 0.3.0 | tested | claude-sonnet-5-5, 2026-11-18 | 94.5% agreement with the head's labels on 82 checks, 0 false Fails, 10 of 10 planted faults found. [Evidence](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
+| [Flow-Read Explainer (IT)](built/explain.commuter.it.md) | 0.4.0 released, 0.4.1 in test | draft | claude-opus-5-5, 2026-11-18 | 76 Pass / 13 Borderline / 5 Fail on 94 shared checks, up from 55 / 15 / 12 at 0.2.1. [Evidence](tests/pattern.explain/runs/v0.4.0/head-grading.md) |
+| [Rubric writer](built/rubric.md) | 0.1.0 | draft | not yet run | |
+
 ## Use a prompt today
 
-One prompt is ready to try, as a draft:
+**[Grader](built/grade.md)** applies a yes/no rubric to one output and returns a verdict per check with the quote or count behind it. Use a different model from the one that wrote the output.
+
+The explainer is ready to try as a draft:
 
 **[Flow-Read Explainer (IT)](built/explain.commuter.it.md)** explains one technical concept so it can be read top to bottom on a phone or e-reader with nothing to look up.
 

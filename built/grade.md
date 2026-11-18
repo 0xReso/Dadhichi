@@ -2,7 +2,7 @@
 id: built.grade
 kind: built
 version: 0.3.0
-status: draft            # 0.2.0 run: 89% agreement, 9/10 recall, NOT USABLE (lenient on padding). 0.3.0 applies the head's edits (minor bump: COUNTS input added)
+status: tested           # 0.3.0 run 2026-11-18: 94.5% agreement on 82 cells (relabels applied), 0 false Fails, 10/10 recall on planted faults, quotes verbatim, counts from wc -w. USABLE (head grading on claude-opus-5-5)
 job: Apply a yes/no rubric to one output and return a verdict per check, with the evidence behind each one
 coordinates: review / prompt-engineer / any
 inputs:
@@ -11,7 +11,7 @@ inputs:
   - TASK (optional)     # the prompt or request that produced the output, so the grader knows what was asked
   - SOURCE (optional)   # material the output was meant to be faithful to
   - COUNTS (optional)   # machine counts for the output, such as `wc -w`; the grader uses these instead of counting
-verified_on: not yet verified
+verified_on: claude-sonnet-5-5, 2026-11-18
 tests: tests/pattern.grade/
 ---
 
