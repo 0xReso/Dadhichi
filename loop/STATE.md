@@ -14,9 +14,13 @@ Finished:
 - v0.3.1 graded: NOT PROMOTED (tie with 0.3.0). Released version stays 0.3.0.
 - v0.4.0 = v0.3.1 + the head's five v0.3.1 edits; finance domain 0.1.1. Test run started at n=2 on inputs 2, 3, 7, 8, 9 and n=1 on 1, 4, 5 (13 outputs, runs/v0.4.0 and runs/v0.4.0-finance).
 
-Exact next step: when all 13 v0.4.0 outputs exist, have the head grade them against v0.3.0 (the released version) and v0.3.1, write runs/v0.4.0/head-grading.md, then promote or apply edits. If promoted and 11b and 13 pass, decide on status tested with an explicit waiver for input 6.
+Also done: built/grade.md 0.2.0 (grader, meta pack) after a head gate review; tests/pattern.grade/ with 8 inputs, a planted-fault input and a 9-check rubric. Backlog extended with stages 3a, 5 and 6 from MASTER_PLAN.
+
+Exact next steps, in order (usage limit for Opus subagents resets at 15:00 UTC):
+1. Rerun the head grading of v0.4.0 (13 outputs in runs/v0.4.0 and runs/v0.4.0-finance) against released v0.3.0 and v0.3.1; write runs/v0.4.0/head-grading.md; promote or apply edits; decide on status tested with an explicit waiver for input 6.
+2. Grader test run: 8 inputs per tests/pattern.grade/inputs.md, ideally on a model other than Opus; compare with the reference gradings; head grades the grader's outputs.
 
 Still missing: input 6 needs RFC 9111 sections 1-4; rfc-editor.org and ietf.org are blocked by this session's network policy.
 
 Decisions for the owner:
-- The head ran on Opus (claude-opus-5-5) because Fable 5.2 is out of credits. Builder and test writers are also Opus, so independence is weaker than the design asks; regrade with Fable when credits return.
+- The head ran on Opus (claude-opus-5-5) because Fable 5.2 was out of credits. Builder and test writers are also Opus, so independence is weaker than the design asks; regrade with Fable when credits return.

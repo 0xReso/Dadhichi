@@ -10,3 +10,4 @@
 | 6 | Counts | Word counts within 5% of `wc -w`, or marked approximate |
 | 7 | Independent | No verdict cites a fault that belongs only to another check |
 | 8 | Clean output | Only the verdict lines and the summary; no preamble, no rewrite advice |
+| 9 | Recall | On input 8, every planted fault gets a non-Pass on its own check, and checks 4 and 9 stay Pass |
