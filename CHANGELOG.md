@@ -31,3 +31,4 @@
 - Test run v0.3.1 (9 outputs + input 8 on both versions) graded by the head (on Opus): NOT PROMOTED, a tie with v0.3.0 (70 Pass each on 94 shared cells; v0.3.1 has fewer Fails). All five edits fixed their targets; offset by new forward pointers, Docker growth (~1,940) and a named character. Input 8: the pattern generalises to finance; IT wording in the pattern sections noted for the split.
 - built/explain.commuter.it.md 0.4.0 (draft): 0.3.1 plus the head's five edits (one foundation per paragraph in plan step 4, named forward-pointer clauses, a reader note lowers the ceiling, keep source scope words and mark joins, "you" instead of a named person). Released version stays 0.3.0.
 - domains/finance.md 0.1.1: Advice paragraph rewritten as field knowledge.
+- built/grade.md 0.1.0 (draft): grader prompt (meta pack). tests/pattern.grade/: 8 inputs scored against the head's existing verdicts, 8-check rubric.
