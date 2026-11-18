@@ -1,6 +1,6 @@
 # Test inputs: pattern.grade
 
-The grader is tested against the head's verdicts, which serve as the reference labels. Each input is one explain output, the frozen prompt that produced it as TASK, the source where there is one, and as RUBRIC the explain rubric followed by the "How I applied the checks" bullets from the reference grading file and any per-input limit from tests/pattern.explain/inputs.md (for example, 1,700 words for input 7 Docker). The grader is scored against labels made under those notes, so it must see them. `wc -w` counts are in the table; the reference counts were made by hand. The grader's verdicts are compared check by check with the head's grading file for that run.
+The grader is tested against the head's verdicts, which serve as the reference labels. Each input is one explain output, the frozen prompt that produced it as TASK, the source where there is one, and as RUBRIC the explain rubric followed by tests/pattern.grade/conventions.md, then the "How I applied the checks" bullets from the reference grading file with any bullet about a different output removed, then any limit tests/pattern.explain/inputs.md sets for this output, named by topic rather than by number (for example, "1,700 words for this piece", only for Docker). Explain and grade inputs are numbered differently, so a bullet that says "input 7" means Docker and must not reach the bond grader. Save each filled prompt as runs/<version>/<n>-filled.md, so a disagreement can be traced to what the grader saw. COUNTS is filled from `wc -w`. The grader's verdicts are compared check by check with the head's grading file for that run.
 
 | # | Output | Reference grading | What it stresses |
 | --- | --- | --- | --- |
@@ -18,3 +18,13 @@ The design asks for 20 to 50 hand-labelled outputs before trusting a grader; inp
 `wc -w`: input 1 537, input 2 1,914, input 3 1,945, input 4 545, input 5 1,955, input 6 3,484, input 7 1,969, input 8 1,995.
 
 The reference gradings were written by Opus, so run the grader on a different model (or have a person label checks on at least three inputs) to avoid measuring self-agreement.
+
+## Relabels
+
+Agreement is computed against the reference with these corrections, found by the grader in the v0.2.0 run and confirmed by the head:
+
+| Input | Check | Reference | Corrected | Why |
+| --- | --- | --- | --- | --- |
+| 6 Raft | 3 | Pass | Borderline | Term numbering in the election example is wrong (leader in term 7, not 6) |
+| 3 Docker | 3 | Pass | Borderline | Contradicts itself on which Dockerfile lines make layers |
+| 4 Driftwood | 5 | Pass | Borderline | Repeated admission paragraph can go |

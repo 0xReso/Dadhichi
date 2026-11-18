@@ -1,8 +1,8 @@
 ---
 id: built.grade
 kind: built
-version: 0.2.0
-status: draft            # 0.2.0 applies the head's five gate-review edits; not yet tested
+version: 0.3.0
+status: draft            # 0.2.0 run: 89% agreement, 9/10 recall, NOT USABLE (lenient on padding). 0.3.0 applies the head's edits (minor bump: COUNTS input added)
 job: Apply a yes/no rubric to one output and return a verdict per check, with the evidence behind each one
 coordinates: review / prompt-engineer / any
 inputs:
@@ -10,13 +10,14 @@ inputs:
   - OUTPUT (required)   # the single output to grade
   - TASK (optional)     # the prompt or request that produced the output, so the grader knows what was asked
   - SOURCE (optional)   # material the output was meant to be faithful to
+  - COUNTS (optional)   # machine counts for the output, such as `wc -w`; the grader uses these instead of counting
 verified_on: not yet verified
 tests: tests/pattern.grade/
 ---
 
 # Grader
 
-How to use: fill the four variables and paste the block into a capable model, ideally a different model from the one that wrote the output, because a model tends to rate its own writing kindly. Leave optional blocks empty but keep their tags. The grader returns one line per check and a short summary; nothing else.
+How to use: fill the variables and paste the block into a capable model, ideally a different model from the one that wrote the output, because a model tends to rate its own writing kindly. Leave optional blocks empty but keep their tags. The grader returns one line per check and a short summary; nothing else.
 
 ```markdown
 <graded_task>
@@ -30,6 +31,10 @@ How to use: fill the four variables and paste the block into a capable model, id
 <graded_output>
 {OUTPUT}
 </graded_output>
+
+<graded_counts>
+{COUNTS}
+</graded_counts>
 
 <rubric>
 {RUBRIC}
@@ -61,13 +66,13 @@ When torn between two verdicts, choose the one the evidence supports more direct
 <plan>
 Work privately before you write anything. The person sees only the result.
 
-1. Read the graded_task block, if any, so you know what the output was asked to do. Read the graded_source block, if any, so you can check faithfulness against it rather than against your own knowledge.
+1. Read the graded_task block, if any, so you know what the output was asked to do. Read the graded_source block, if any, so you can check faithfulness against it rather than against your own knowledge, and before calling a claim unsupported, find where the source places it. For any check on accuracy or faithfulness, also test the output against itself: a claim that contradicts another sentence in the output, or a worked example that breaks a rule the output has just stated, is an error even when each sentence sounds right alone, because the reader trusts the output's own statements most.
 
 2. Read the graded_output once, top to bottom, as its intended reader would.
 
-3. Take the checks one at a time. For each, restate the pass condition to yourself in one sentence, then look for the evidence: the line that passes or fails it, a count where the check has a number, or the place where something required is missing. When the condition covers the whole output (every term, every paragraph, every section, no sentence), go through it section by section and keep the worst instance you find, because one bad sentence in a long piece is exactly what a quick read misses and a false Pass is the error the reader cannot see. Decide only after you have the evidence. If the rubric's wording leaves it unclear whether something counts, the verdict is Borderline, and you say what you looked for and why it is unclear.
+3. Take the checks one at a time. For each, restate the pass condition to yourself in one sentence, then look for the evidence: the line that passes or fails it, a count where the check has a number, or the place where something required is missing. When the condition covers the whole output (every term, every paragraph, every section, no sentence), go through it paragraph by paragraph, including any closing list, and keep the worst instance you find, because one bad sentence in a long piece is exactly what a quick read misses and a false Pass is the error the reader cannot see. A condition worded about sections can still be broken by one paragraph inside a section, or by a passage that repeats one elsewhere; weigh that instance against the check's purpose rather than passing it on the wording. Decide only after you have the evidence. If the rubric's wording leaves it unclear whether something counts, the verdict is Borderline, and you say what you looked for and why it is unclear.
 
-4. Measure whenever the check allows it. Count words, headings, paragraphs, or terms when the pass condition names a number, because an estimate of length is the most common way a grader goes wrong. If you cannot count exactly, say the count is approximate and give the method.
+4. Measure whenever the check allows it. Count words, headings, paragraphs, or terms when the pass condition names a number, because an estimate of length is the most common way a grader goes wrong. If the graded_counts block gives a figure, use it and say it is the supplied count, because a machine count is exact and a count made while reading is not. Otherwise, if you cannot count exactly, say the count is approximate and give the method.
 
 5. Keep checks apart. Judge each against its own pass condition only. A problem that breaks one check does not lower the verdict on another unless that other check's condition is also broken, because a failure counted twice makes one fault look like two.
 
@@ -87,7 +92,7 @@ Every Pass on a check that covers the whole output came from a sweep of the whol
 <output>
 Return only this, in plain Markdown:
 
-For each check, one line: the check's number and name, a colon, the evidence in one or two sentences, then the verdict in bold at the end of the line. Writing the evidence first means the verdict follows from what you found rather than the evidence being fitted to a verdict. For a Pass on a check that applies everywhere, the evidence says what you swept and the closest call you found ("swept all 9 paragraphs; nearest miss is 'shard' in paragraph 4, defined in the same sentence").
+For each check, one line: the check's number and name, a colon, the evidence in one or two sentences, then the verdict in bold at the end of the line. Writing the evidence first means the verdict follows from what you found rather than the evidence being fitted to a verdict. For a Pass on a check that applies everywhere, the evidence says what you swept, the closest call you found, and why it plainly meets the condition ("swept all 9 paragraphs; nearest miss is 'shard' in paragraph 4, defined in the same sentence"). If the only reasons you can give are that the instance is small, or that the condition's wording does not quite reach it, the verdict is Borderline, because the person reading the grade needs to see that instance and decide, and a Pass hides it.
 
 Then a line that starts "Summary:" giving the counts of Pass, Borderline, Fail and Not applicable, and the one failure that most affects the output's usefulness, in one sentence.
 
