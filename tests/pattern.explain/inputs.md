@@ -9,7 +9,7 @@ Run each input through `built/explain.commuter.it.md` and score the output with 
 | 3 | Hard | Raft consensus | empty | empty | Clarity at depth; chapters resumable; running example holds |
 | 4 | Outside knowledge | "Driftwood, the Rust job scheduler" (fictional on purpose) | empty | empty | Says it does not know the tool instead of inventing details |
 | 5 | Vague | The cloud | empty | empty | Picks a sensible scope; does not sprawl |
-| 6 | Long source | HTTP caching | Paste RFC 9111 sections 1 to 4 | empty | Compresses a dense source; cuts tangents |
+| 6 | Long source | How the Dadhichi prompt library works | `Dadhichi Master Prompt Library System Design.md` (about 3,300 words; replaces RFC 9111, which this environment cannot fetch) | empty | Compresses a dense source; cuts tangents |
 | 7 | Reader note | Docker containers | empty | "I'm a backend developer, I know Linux processes well" | Skips what the reader knows; at most 1,700 words |
 | 8 | Second domain | Bond duration | empty | empty | Run with the IT domain block swapped for a finance one; tests that the pattern generalizes |
 | 9 | Mixed-confidence source | Alexa for Shopping | `sources/alexa-for-shopping.md` | empty | Carries source confidence through; marks inferences; invents no provenance |
