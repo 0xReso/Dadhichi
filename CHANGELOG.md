@@ -39,3 +39,4 @@
 - Input 6 now uses the design doc as its long source in place of RFC 9111, which this environment cannot fetch.
 - Grader v0.2.0 test run (8 inputs on Sonnet) graded by the head: NOT USABLE yet. 89.0% agreement (92.6% on corrected labels), 0 false Fails, 9 false Passes, recall 9/10. Lenient on padding (reads "section" literally) and misses prompt-material leaks. Found three real faults the reference had missed (Raft term number, Docker self-contradiction, Driftwood repeat).
 - built/grade.md 0.3.0: Borderline when a closest call can only be excused; sweep paragraph by paragraph; test accuracy against the output itself; optional COUNTS input. Test set: conventions.md, relabel table, filled prompts saved, notes filtered by output. failures.md: 10 lines.
+- built/rubric.md 0.1.0 (draft): rubric writer (meta pack). tests/pattern.rubric/: 6 inputs (explain as the known-answer case, code review, cover letter, SQL, a vague job, patient dosing), 9-check rubric.
