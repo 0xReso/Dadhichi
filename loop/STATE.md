@@ -11,7 +11,10 @@ Finished:
 - v0.3.1 = the head's five v0.3.0 grading edits, applied verbatim. Gate review skipped because every change is the head's own wording; the grading of the v0.3.1 run doubles as its review.
 - v0.3.1 test run started: inputs 1, 2, 3, 4, 5, 7, 8 (finance), 9 twice.
 
-Exact next step: when all nine v0.3.1 outputs exist, have the head grade them against v0.3.0 (and v0.3.0-finance vs v0.3.1-finance for input 8), write runs/v0.3.1/head-grading.md, then promote or apply edits.
+- v0.3.1 graded: NOT PROMOTED (tie with 0.3.0). Released version stays 0.3.0.
+- v0.4.0 = v0.3.1 + the head's five v0.3.1 edits; finance domain 0.1.1. Test run started at n=2 on inputs 2, 3, 7, 8, 9 and n=1 on 1, 4, 5 (13 outputs, runs/v0.4.0 and runs/v0.4.0-finance).
+
+Exact next step: when all 13 v0.4.0 outputs exist, have the head grade them against v0.3.0 (the released version) and v0.3.1, write runs/v0.4.0/head-grading.md, then promote or apply edits. If promoted and 11b and 13 pass, decide on status tested with an explicit waiver for input 6.
 
 Still missing: input 6 needs RFC 9111 sections 1-4; rfc-editor.org and ietf.org are blocked by this session's network policy.
 
