@@ -1,0 +1,13 @@
+1. Size: The supplied count is 9 numbered checks, within the required range of 5 to 12. **Pass**
+2. Decidable: Convention 9 allows “a few short lines of code” without defining either the number of lines or their width. Two graders could count the same five lines and disagree. **Fail**
+3. Matters: All nine checks address failures a commuter could notice. Even the structural check has a concrete reading consequence: “one standalone prose line” lets the reader identify what the article promises before starting it. **Pass**
+4. No overlap: If the body contains an internally consistent worked example but its result is technically wrong, “One contradiction” can fail check 4. More directly, changing a value without explanation halfway through the example can count as both a contradiction under check 4 and an “inconsistent value” under check 7. **Fail**
+5. Failures covered: Checks 6 and 8 catch implementation digressions, repeated recaps, and reworded teasers. Check 1 catches cap overruns, but “2,200 for a moderate topic” allows a model to aim for that ceiling on an ordinary input, the reported length failure, even when every passage serves a required step. **Fail**
+6. Marked: All nine rows have a decision label. The word count and Markdown block checks are marked code, while mixed check 9 requires a grader to decide whether code is “explained immediately.” **Pass**
+7. On task: Check 3 requires the requested concept’s purpose and mechanism, and explicitly fails an article when “a related concept substitutes for the requested one.” **Pass**
+8. Recall: Seven of the eight designated checks are covered: first-use vocabulary and linear dependencies in check 5, accuracy in 4, length in 1, padding in 6, resumability in 8, and the misconception in 3. The missing paragraph-level limit on new terms leaves seven against a threshold of six. **Pass**
+9. Clean output: The output contains the table and the “Grading conventions” section with nine numbered entries. There is no preamble or trailing commentary. **Pass**
+10. Conventions: Convention 6 identifies its unit as a “removable sentence or paragraph” and fails “One substantive aside,” but gives no verdict for one minor removable aside or several minor ones. Its table row requires “Every body passage” to earn its place, so graders could apply different thresholds. **Fail**
+11. Assumption: Input 1 starts with the table header “| # | Check | Pass condition | Decided by |” and contains no assumption line. **Pass**
+
+Summary: 7 Pass, 0 Borderline, 4 Fail, 0 Not applicable; the most consequential gap is that an ordinary moderate article can grow toward 2,200 words without registering the length regression the prompt author wants to detect.

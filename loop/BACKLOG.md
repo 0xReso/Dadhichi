@@ -14,8 +14,8 @@ Each "build pattern X" item means the full cycle, done over several rounds:
 ## Stage 1 — finish the explainer
 
 - [x] Explain v0.2.2: apply the five edits in `tests/pattern.explain/runs/v0.2.1/head-grading.md` and the two mixed-confidence edits in `tests/pattern.explain/runs/v0.2.1-alexa/head-grading.md`; split rubric check 11 into 11a/11b; add the unknown-tool check; give input 7 a length number.
-- [ ] Explain v0.2.2: head gate review, then test run on inputs 1 (three times), 2, 3, 4, 6, 8, plus the Alexa source.
-- [ ] Explain v0.2.2: head grading, promotion decision, failure log updated. Repeat with v0.2.3 if not promoted.
+- [x] Grade through v0.4.1 on Claude and compare v0.4.2 with v0.4.0 on matched GPT runs, two samples per input.
+- [ ] Explain: test a revision for the first-use regressions on inputs 5 and 6. Complete the human phone-read on inputs 1 and 2 before marking the prompt tested.
 - [ ] Figures modifier: test `modifiers/figures.md` with the explainer on inputs 2, 3 and Alexa; head grades the four figure checks.
 
 ## Stage 2 — prove composition (design doc roadmap step 2)

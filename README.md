@@ -18,8 +18,8 @@ Most prompt collections are lists of text nobody has tested. You cannot tell whi
 | Prompt | Version | Status | Tested on | Result |
 | --- | --- | --- | --- | --- |
 | [Grader](built/grade.md) | 0.3.0 | tested | claude-sonnet-5-5, 2026-11-18 | 94.5% agreement with the head's labels on 82 checks, 0 false Fails, 10 of 10 planted faults found. [Evidence](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
-| [Flow-Read Explainer (IT)](built/explain.commuter.it.md) | 0.4.0 released, 0.4.1 in test | draft | claude-opus-5-5, 2026-11-18 | 76 Pass / 13 Borderline / 5 Fail on 94 shared checks, up from 55 / 15 / 12 at 0.2.1. [Evidence](tests/pattern.explain/runs/v0.4.0/head-grading.md) |
-| [Rubric writer](built/rubric.md) | 0.1.0 | draft | not yet run | |
+| [Flow-Read Explainer (IT)](built/explain.commuter.it.md) | 0.4.0 released, 0.4.2 candidate | draft | claude-opus-5-5, 2026-11-18 | 76 Pass / 13 Borderline / 5 Fail on 94 shared checks, up from 55 / 15 / 12 at 0.2.1. [Claude grading](tests/pattern.explain/runs/v0.4.0/head-grading.md) · [Matched GPT comparison](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md) |
+| [Rubric writer](built/rubric.md) | 0.2.0 | draft | gpt-6.2-sol, 2026-11-18 | [Evaluation](tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md) |
 
 ## Use a prompt today
 
