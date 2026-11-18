@@ -1,97 +1,81 @@
 # Dadhichi
 
-A library of reusable prompts where every prompt comes with the evidence that it works: its test inputs, its pass/fail checks, the graded outputs, and the log of failures that shaped it.
+**A library of reusable prompts with a record of how well each one works.**
 
-**Status: early.** One prompt is `tested` (the Grader); the explainer is close; more are in progress. The [master plan](MASTER_PLAN.md) describes what will be built and in what order.
+Suppose you ask for an explanation of Kafka consumer groups to read on the train. Halfway down the first screen, you meet the word *partition*. The definition comes three paragraphs later. The explanation may be technically accurate, but you have already had to stop reading. For a commuter with no browser open, that is a failure we can test for.
 
-## Why this exists
+Dadhichi starts with moments like that. We describe the job, the person who needs the result, and what a good answer lets them do. Then we turn those expectations into checks, run the prompt on difficult inputs, and keep the outputs that tell us where it breaks. **Our goal is to let someone choose a prompt for a real job, see the evidence behind it, and adapt it to a different reader or field.**
 
-Most prompt collections are lists of text nobody has tested. You cannot tell which model a prompt was written for, what it was tried on, or where it breaks. Dadhichi takes the opposite approach:
+[Try the explainer](#try-the-explainer) · [Explore the library](#the-library-today) · [Follow a version decision](#why-v040-is-still-the-explainer-to-try) · [See where this is going](#where-this-is-going)
 
-- **Tested, not just written.** A prompt is marked `tested` only after it passes a fixed set of inputs against written yes/no checks, graded by a different model from the one that wrote the outputs.
-- **Failures are published.** Each prompt keeps a failure log. It shows what went wrong in every version and why each instruction is there.
-- **Small on purpose.** About a dozen task patterns (explain, review, compare, diagnose...) are combined with reader profiles and domain packs, so one tested pattern serves many subjects.
-- **Dated.** Every prompt records the model and date it was last verified on, because prompts that work on one model can degrade on the next.
+> **Picking up development?** Read the [current handoff](loop/STATE.md) for the last result and the next task. [Agent instructions](AGENTS.md)
 
-## Scorecards
+## Try the explainer
 
-| Prompt | Version | Status | Tested on | Result |
-| --- | --- | --- | --- | --- |
-| [Grader](built/grade.md) | 0.3.0 | tested | claude-sonnet-5-5, 2026-11-18 | 94.5% agreement with the head's labels on 82 checks, 0 false Fails, 10 of 10 planted faults found. [Evidence](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
-| [Flow-Read Explainer (IT)](built/explain.commuter.it.md) | 0.4.0 released, 0.4.2 candidate | draft | claude-opus-5-5, 2026-11-18 | 76 Pass / 13 Borderline / 5 Fail on 94 shared checks, up from 55 / 15 / 12 at 0.2.1. [Claude grading](tests/pattern.explain/runs/v0.4.0/head-grading.md) · [Matched GPT comparison](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md) |
-| [Rubric writer](built/rubric.md) | 0.2.0 | draft | gpt-6.2-sol, 2026-11-18 | [Evaluation](tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md) |
+The **Flow-Read Explainer** writes an article you can read once, top to bottom, on a phone or e-reader. It introduces terms as you need them and carries a worked example through the explanation. You can try it by pasting Markdown into a model.
 
-## Use a prompt today
+1. Open the [promoted v0.4.0 explainer](tests/pattern.explain/runs/v0.4.0/prompt.md) and copy the prompt inside the fenced block.
+2. Replace the three placeholders using the example below. For an empty source, remove the placeholder and keep the surrounding tags.
+3. Paste the filled prompt into your model. As you read the article, notice the first place you need to scroll back, look something up, or guess what a term means. That moment makes a good test case.
 
-**[Grader](built/grade.md)** applies a yes/no rubric to one output and returns a verdict per check with the quote or count behind it. Use a different model from the one that wrote the output.
-
-The explainer is ready to try as a draft:
-
-**[Flow-Read Explainer (IT)](built/explain.commuter.it.md)** explains one technical concept so it can be read top to bottom on a phone or e-reader with nothing to look up.
-
-1. Open the file and copy the prompt block.
-2. Replace `{TOPIC}`, and optionally `{SOURCE}` and `{NOTES}`.
-3. Paste it into any capable model.
-
-See what it produces in [an example article](articles/alexa-for-shopping/article.md), and see where it currently falls short in its [failure log](tests/pattern.explain/failures.md). An optional [figures modifier](modifiers/figures.md) adds flowcharts and is not yet tested.
-
-## How a prompt gets made
-
-Every prompt in the library goes through the same loop:
-
-```
-write the job in one sentence
-        ↓
-collect test inputs  →  write yes/no checks
-        ↓
-write the prompt as a brief  →  cold review by a second model
-        ↓
-run each input in a fresh session  →  grade with a different model
-        ↓
-log every failure  →  fix the cause  →  rerun everything
-        ↓
-promote only if it passes more checks and breaks none
-```
-
-The full ten-step method, the mental model behind it, and what we have learned so far are in the [master plan](MASTER_PLAN.md), sections 3 to 5.
-
-## What is planned
-
-| Pack | What it holds | State |
-| --- | --- | --- |
-| Core patterns | explain, digest, teach, compare, diagnose, plan, draft, build, ideate, review, rewrite, extract | explain in testing; others not started |
-| Developer pack | Code review, bug diagnosis, test writer, PR descriptions, README writer, design docs, release notes and more | Not started |
-| Agent pack | `AGENTS.md` writer, skill author, system prompt writer, tool descriptions, subagent briefs | Not started |
-| Meta pack | The tools that make prompts: engine, rubric writer, test input writer, grader, failure analyst | Not started; a reviewer agent exists |
-| Safety pack | Untrusted-input wrapper, injection test set, confidence rule for sources | Not started |
-
-The complete list, with the job of each tool and the build order, is in the [master plan](MASTER_PLAN.md), section 6.
-
-## Repository map
-
-| Path | What is in it |
+| Placeholder | Example |
 | --- | --- |
-| [`MASTER_PLAN.md`](MASTER_PLAN.md) | Research, mental model, workflow, tool catalogue, open-source plan, roadmap |
-| [`Dadhichi Master Prompt Library System Design.md`](Dadhichi%20Master%20Prompt%20Library%20System%20Design.md) | The architecture: kernel, patterns, readers, domains, modifiers, and the test rules |
-| [`built/`](built/) | Assembled prompts, ready to paste |
-| [`modifiers/`](modifiers/) | Small optional add-ons for a prompt |
-| [`tests/`](tests/) | Per pattern: test inputs, the rubric, the failure log, and every run with its outputs and grading |
-| [`articles/`](articles/) and [`sources/`](sources/) | Real-use output from the explainer and the source it was written from |
-| [`loop/`](loop/) | The backlog and the rules for unattended work rounds |
-| [`scripts/`](scripts/) | The runner for the unattended loop |
-| [`.claude/agents/dadhichi-head.md`](.claude/agents/dadhichi-head.md) | The reviewer agent that gate-reviews prompts and grades test runs |
-| [`CHANGELOG.md`](CHANGELOG.md) | What was built, tested and decided, by date |
+| `{TOPIC}` | How Kafka consumer groups share work |
+| `{NOTES}` | I know what a queue is. I want to understand what happens when one consumer stops halfway through a batch. |
+| `{SOURCE}` | Leave empty for this example, or paste documentation you want the article to follow. |
 
-## How the work runs
+For a source-backed example, read the Alexa for Shopping article alongside its source pack. The pack distinguishes Amazon's product descriptions, published research, and an independently guessed architecture. The article has to preserve those distinctions even when it brings the pieces together in a single explanation. [Finished article](articles/alexa-for-shopping/article.md) · [Source pack](sources/alexa-for-shopping.md) · [Original grading](tests/pattern.explain/runs/v0.2.1-alexa/head-grading.md)
 
-A builder model writes and edits prompts. A separate head reviewer approves each version before testing and grades the outputs afterwards; the builder never grades its own work. Routine rounds can run unattended: each round reads [`loop/STATE.md`](loop/STATE.md) and [`loop/BACKLOG.md`](loop/BACKLOG.md), does one step, writes down what it did, and commits. The rules are in [`loop/LOOP.md`](loop/LOOP.md).
+## The library today
 
-## Contributing
+As of **18 November 2026**, three prompts are available. A **promoted draft** is the version selected through comparison with its predecessor. The **tested** label records that a prompt met its acceptance criteria on a named model and test set.
 
-The project is not yet set up for outside contributions; that is phase 6 of the plan. The most useful thing to send now is a failure: an input you tried with a Dadhichi prompt, the output, and what was wrong with it. Open an issue with those three things.
+| Prompt | What you give it → what you get | Evidence |
+| --- | --- | --- |
+| [Flow-Read Explainer v0.4.0](tests/pattern.explain/runs/v0.4.0/prompt.md) · promoted draft | A topic, optional source and reader notes → an article for a single linear read | Nine topics cover short definitions, complex mechanisms, a fictional tool, finance and mixed-confidence sources. [Version comparison](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md) |
+| [Grader v0.3.0](built/grade.md) · tested | An output and a rubric → a verdict for each check, backed by a quote, count or named omission | On Claude Sonnet, it reached 94.5% agreement across 82 checks and found all 10 deliberately planted faults. [Calibration report](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
+| [Rubric Writer v0.2.0](built/rubric.md) · draft | A job, optionally its reader, prompt and past failures → a table of checks and rules for scoring them | In eight of ten samples, one mistake could fail two checks. A missing consequence in a code review, for instance, could be counted twice. [Evaluation](tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md) |
 
-When contributions open, the bar will be: no prompt without its test inputs, checks, a frozen run and a grading file, and no author grading their own run.
+The three prompts can work together. A writer defines what an explanation should achieve, uses the Rubric Writer to draft the checks, and inspects them for overlap. After generating an article, they give it and the rubric to a different model running the Grader. The saved evidence lets another person challenge a verdict or reproduce the comparison.
 
-## Licence
+## Why v0.4.0 is still the explainer to try
 
-Not chosen yet. The plan recommends MIT; see [master plan](MASTER_PLAN.md), section 9.
+The v0.4.2 candidate produced fewer outright failures. Was it better for the reader? We ran both versions on the same nine inputs, twice per input, for **36 articles**. Every article had the same writer model (`gpt-6.2-sol`) and a separate grader model (`gpt-6.2-astra`). Each input contributed the worse of its two verdicts on each applicable check.
+
+| Version | Pass | Borderline | Fail |
+| --- | ---: | ---: | ---: |
+| v0.4.0 | **75** | 14 | 18 |
+| v0.4.2 | 73 | 22 | **12** |
+
+The project promotes a revision when it passes more checks and no previously passing check becomes a failure. Here, two checks moved from Pass to Fail. One cloud article used *requests* before explaining the computing meaning. One library article asked the reader to interpret *Kafka consumer groups* before explaining the phrase. **v0.4.0 remains the promoted draft.** The scorecard includes the individual grades, where the judge's interpretation was debatable, and the outstanding human phone-read. [Matched scorecard](tests/pattern.explain/runs/v0.4.2-gpt-6.2-sol/comparison.md) · [Current candidate](built/explain.commuter.it.md) · [Failure log](tests/pattern.explain/failures.md) · [Phone-read status](loop/STATE.md)
+
+## Where this is going
+
+The long-term design is a prompt engine that can take a request such as *“Explain bond duration to someone reading on the bus”* and assemble a brief from reusable parts.
+
+```mermaid
+flowchart TD
+    K["Kernel · shared rules"] --> P["Assembled prompt"]
+    T["Task · explain a concept"] --> P
+    R["Reader · commuter on a phone"] --> P
+    D["Domain · finance"] --> P
+    M["Optional modifier · add figures"] -.-> P
+    P --> E["Run on test inputs and grade the outputs"]
+```
+
+The task determines the work. The reader determines how much background, time and attention the answer can assume. The domain supplies field knowledge. In the bond-duration test, for example, the commuter still needs a linear explanation, but the relevant vocabulary shifts from servers and requests to prices and interest rates. The repository already has a draft finance pack, frozen finance test prompts and an optional figures modifier. General-purpose assembly is a roadmap milestone. [Finance pack](domains/finance.md) · [Finance test prompt](tests/pattern.explain/runs/v0.4.2-finance/prompt.md) · [Figures modifier](modifiers/figures.md)
+
+The next milestones are to finish the explainer, demonstrate that readers and domains can be swapped independently, and strengthen the tools that generate and grade tests. The planned library then expands into developer work such as code review and diagnosis, agent instructions and handoffs, and checks for handling untrusted or uncertain source material. Each addition needs its own test inputs and acceptance criteria. [Master plan](MASTER_PLAN.md) · [System design](Dadhichi%20Master%20Prompt%20Library%20System%20Design.md)
+
+## Explore or contribute
+
+| If you want to… | Start here |
+| --- | --- |
+| Use the prompts or inspect real examples | [Assembled prompts](built/) · [Articles](articles/) |
+| Understand why a prompt changed | [Test suites and frozen runs](tests/) · [Changelog](CHANGELOG.md) |
+| Pick up development | [Current handoff](loop/STATE.md) · [Backlog](loop/BACKLOG.md) |
+| Understand how an unattended round works | [Round protocol](loop/LOOP.md) · [Runner](scripts/) · [Reviewer brief](.claude/agents/dadhichi-head.md) |
+
+The most useful contribution today is a reproducible failure. Open an issue with the prompt version, model, input, and the shortest passage that shows what went wrong. Say what the reader needed at that point. That gives the next revision a concrete case to beat.
+
+Formal contribution guidelines and the project licence are still open items in the [master plan](MASTER_PLAN.md).

@@ -1,6 +1,6 @@
 # Loop state
 
-2026-11-18 23:10 IST. Continued Claude’s cloud work through cab1c11 on the local codex/resume-cloud-v042 branch. The earlier independent Codex work is preserved in 698ff91 on the previous local branch.
+Latest evaluation round: 2026-11-18 23:10 IST, commit `aeb244e`, following Claude’s cloud work through `cab1c11`. The project overview and root agent instructions are now in place.
 
 ## Explainer
 
