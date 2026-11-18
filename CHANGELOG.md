@@ -25,3 +25,6 @@
 - Gate review of v0.2.2 (head on Opus, since the usual head model was out of credits): REVISE, 5 edits at the seams (unknown-tool admission in the line under the title, self-check covers sections, reader note shrinks the budget, one set of tier names, say confidence once).
 - built/explain.commuter.it.md 0.3.0 (draft): the five gate-review edits applied verbatim; minor bump per the design, since planning logic and output shape changed. Frozen in runs/v0.3.0/prompt.md. Rubric check 6 excludes "The whole picture" and "Going further".
 - Test run v0.3.0 started on inputs 1 (x3), 2, 3, 4, 5, 7, 9. Input 6 skipped: RFC 9111 could not be fetched from this session. Input 8 waits for a finance domain block.
+- Test run v0.3.0 (9 outputs) graded by the head (on Opus): PROMOTE over v0.2.1, still draft. 60/15/7 vs 55/15/12 on shared cells, no Pass-to-Fail. Fixed: API-key size (3 of 3 samples), unknown tool, Raft log repair, Docker cap. Still failing: 11b pace (names and lists not counted as terms), 13 source confidence on Alexa (invented diagram origin again), cold second sections.
+- built/explain.commuter.it.md 0.3.1 (draft): the head's five v0.3.0 edits. failures.md: 8 new lines, 6 pending lines resolved.
+- Input 8 (bond duration, finance domain) run on v0.3.0: 1,955 words; not yet graded.

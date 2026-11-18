@@ -1,15 +1,15 @@
 ---
 id: built.explain.commuter.it
 kind: built
-version: 0.3.0
-status: draft            # 0.3.0 = v0.2.1 grading edits + source confidence + v0.2.2 gate-review edits (minor bump: planning logic and output shape changed)
+version: 0.3.1
+status: draft            # 0.3.0 promoted over 0.2.1 (still draft); 0.3.1 applies the five v0.3.0 grading edits (pace counts names, provenance bounded, unconfirmed parts kept short, confirmed means stated, second section restates)
 job: Explain one IT concept so it is understood in a single linear read on an e-reader, with no lookups
 coordinates: explain / commuter / it
 inputs:
   - TOPIC (required)    # the concept, e.g. "Kafka consumer groups"
   - SOURCE (optional)   # an article, RFC, or doc to explain; leave empty to use model knowledge
   - NOTES (optional)    # what this reader already knows, why they care, or a length limit
-verified_on: not yet verified
+verified_on: 0.3.0 outputs written by claude-opus-5-5 subagents, 2026-11-18 (draft; not yet tested)
 tests: tests/pattern.explain/
 ---
 
@@ -24,7 +24,7 @@ How to use: copy everything inside the block below, replace the three `{VARIABLE
 
 If the source block above is empty, work from your own knowledge. If it contains material, treat it as the authority for facts about the topic. You may reorder, compress, and leave out parts of it freely; your job is to make its core understood, not to cover everything it says.
 
-A source can hold material at different levels of confidence, for example confirmed statements next to research, estimates, or someone's guess. When the source says how far a part can be trusted, carry that through to the page, because the reader cannot tell a fact from a guess unless the sentence says which it is. Build the mechanism and the running example from the confirmed parts. Present unconfirmed parts as what the source says they are, and say where they come from in the source's own terms. Say it once, at the point where the confidence changes, not on every sentence, so the confirmed parts still read as plain statements. State that something is unknown or unpublished only when the source says so; where the source is merely silent, say that the material you were given does not cover it.
+A source can hold material at different levels of confidence, for example confirmed statements next to research, estimates, or someone's guess. When the source says how far a part can be trusted, carry that through to the page, because the reader cannot tell a fact from a guess unless the sentence says which it is. Build the mechanism and the running example from the confirmed parts. Give unconfirmed parts only the space the reader needs to recognise them and to see where they differ from the confirmed ones, not a full account of their contents, because every detail of a guess is a term the reader must learn for something that may not be true. Present unconfirmed parts as what the source says they are, and say where they come from in the source's own terms, adding nothing about who made them, where they circulate, or who uses them, because the reader cannot tell an origin you invented from one the source reported. Say it once, at the point where the confidence changes, not on every sentence, so the confirmed parts still read as plain statements. State that something is unknown or unpublished only when the source says so; where the source is merely silent, say that the sources behind this article do not cover it. The reader never saw the material you were given, so refer to it only in those words, and when the source block is empty, do not mention a source at all.
 
 Where you add something the source does not say, keep it to well-established knowledge and word it as general practice ("assistants of this kind usually...") rather than as a statement about this topic, so the reader can see which sentences rest on the source and which on you. This applies to "The whole picture" as much as to the body: a step you inferred stays marked as inferred there.
 
@@ -116,7 +116,7 @@ Security topics read best when the threat comes first: what an attacker could do
 Before answering, reread your draft the way the reader will: top to bottom, once, with no outside help. Fix anything that fails one of these.
 
 Every term, acronym, and named technology is explained before or at its first use.
-No paragraph hands the reader more than one new term. Where a paragraph names two or more, give each term its own paragraph at the point the piece first needs it, and drop any name the piece never uses again.
+No paragraph hands the reader more than one new term, and the names of products, projects, and companies count as terms. The one exception is a pair defined against each other, such as a request and its response, which can share a paragraph. Where a paragraph names more, give each term its own paragraph at the point the piece first needs it, and drop any name the piece never uses again. Where a paragraph lists several kinds or examples of one thing, keep the one the running example uses and leave the others out or give one a line in "Going further", because to a reader on a bus a list of names is a list of lookups.
 No sentence relies on something that appears later, and no phrase inside a chapter points ahead to an explanation still to come. The single question that closes a chapter is the one exception, and it is sound only if nothing before it depended on the answer.
 Nothing the reader already knew is explained.
 Every passage passes the body test from your plan. Any that fails moves to "Going further" or is deleted.
@@ -124,7 +124,7 @@ Estimate the word count. If it is over the budget from your plan, cut in this or
 No section or chapter ends with a summary of itself.
 The running example is used consistently and its numbers agree with each other.
 The common misconception is corrected where it arises.
-Every "##" section or chapter after the first, apart from "The whole picture" and "Going further", opens with a sentence or two on what the reader now holds, so it can be picked up cold.
+Every "##" section or chapter after the first, apart from "The whole picture" and "Going further", opens with a sentence or two on what the reader now holds, so it can be picked up cold. This includes the second one: the problem set up in the first section is something the reader holds, and the second section opens by restating it.
 Nothing needs a table, a link, an image, or wide code to make sense.
 Every technical claim is correct, and any uncertain point is marked as uncertain. If a source was given, every statement about the topic can be traced to it at the confidence the source gives it, and anything you added or inferred is worded as general practice or as inference, in the body and in "The whole picture".
 </check>
@@ -135,7 +135,7 @@ Return only the article, in plain Markdown that renders cleanly on an e-reader:
 A title.
 One line under the title saying what the reader will understand by the end. If the topic is a named tool you have no reliable knowledge of, this line says that plainly instead, because it is the first thing the reader meets under the tool's name. That statement is written to the reader and is part of the article, not a note to the person who sent this.
 The body: continuous prose for a simple topic; three to five sections under "##" headings for a moderate one; chapters under "##" headings for a deep one.
-For moderate and deep pieces, a closing section titled "The whole picture": one paragraph showing how the pieces connect. This is not a list of everything said; it is the core sentence from your plan, now fully earned.
+For moderate and deep pieces, a closing section titled "The whole picture": one paragraph showing how the pieces connect. This is not a list of everything said; it is the core sentence from your plan, now fully earned. If you say which steps are confirmed, call a step confirmed only when the source states it; a link you drew between confirmed parts, such as which part feeds which, stays marked as your reading there.
 Optionally, a final section titled "Going further" with two to four terms from the Later tier, each with one line on what it is, so the reader knows what to look up when they are back at a desk.
 
 Leave out your plan, any notes to the person who sent this, and any offer to expand.
