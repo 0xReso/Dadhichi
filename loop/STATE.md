@@ -16,11 +16,14 @@ Finished:
 
 Also done: built/grade.md 0.2.0 (grader, meta pack) after a head gate review; tests/pattern.grade/ with 8 inputs, a planted-fault input and a 9-check rubric. Backlog extended with stages 3a, 5 and 6 from MASTER_PLAN.
 
-Exact next steps, in order (usage limit for Opus subagents resets at 15:00 UTC):
-1. Rerun the head grading of v0.4.0 (13 outputs in runs/v0.4.0 and runs/v0.4.0-finance) against released v0.3.0 and v0.3.1; write runs/v0.4.0/head-grading.md; promote or apply edits; decide on status tested with an explicit waiver for input 6.
-2. Grader test run: 8 inputs per tests/pattern.grade/inputs.md, ideally on a model other than Opus; compare with the reference gradings; head grades the grader's outputs.
+Since then:
+- Explainer v0.4.0 PROMOTED (released). v0.4.1 = the head's five v0.4.0 edits; 13 outputs written (input 6 now uses the design doc as long source). Head grading of v0.4.1 in progress -> runs/v0.4.1/head-grading.md.
+- Grader v0.2.0 graded: NOT USABLE (89% agreement, 9/10 recall, lenient on padding). Grader v0.3.0 written; test set gained conventions.md, relabels and saved filled prompts. v0.3.0 run (8 inputs, Sonnet) in progress -> tests/pattern.grade/runs/v0.3.0/.
 
-Still missing: input 6 needs RFC 9111 sections 1-4; rfc-editor.org and ietf.org are blocked by this session's network policy.
+Exact next steps:
+1. When runs/v0.4.1/head-grading.md exists: promote or not; if TESTED, set status/verified_on and add the scorecard to README; else apply its edits as v0.4.2 and rerun.
+2. When the 8 grader v0.3.0 outputs exist: head grades them against the reference (with relabels) and planted faults -> tests/pattern.grade/runs/v0.3.0/head-grading.md.
+3. Then the next meta tools in BACKLOG Stage 3a (rubric writer, test input writer, cold reader).
 
 Decisions for the owner:
-- The head ran on Opus (claude-opus-5-5) because Fable 5.2 was out of credits. Builder and test writers are also Opus, so independence is weaker than the design asks; regrade with Fable when credits return.
+- The head ran on Opus (claude-opus-5-5) because Fable 5.2 was out of credits. Builder and test writers are also Opus, so independence is weaker than the design asks; regrade with Fable when credits return. Grader tests run on Sonnet.
