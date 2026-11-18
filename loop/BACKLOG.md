@@ -40,7 +40,29 @@ Each "build pattern X" item means the full cycle, done over several rounds:
 - [ ] Build pattern: extract.
 - [ ] Build pattern: ideate.
 
+## Stage 3a — meta pack (MASTER_PLAN 6.4; build before the developer pack because it speeds up everything after)
+
+- [ ] Build pattern: grader (apply a rubric to one output: reason, quote, verdict per check). Test: grade 30 existing explain outputs and compare with the head's verdicts in the run folders; target 90% agreement per check.
+- [ ] Build pattern: rubric writer (job + inputs in, yes/no checks out, split into code checks and grader checks, numbers where possible). Test on 4 jobs: explain, code review, cover letter, SQL helper.
+- [ ] Build pattern: test input writer (job in, 6–10 stress inputs covering trivial, hard, vague, unknown, second-domain, with-source). Test on the same 4 jobs.
+- [ ] Build pattern: cold reader (prompt in, everything a reader with no context would have to guess, ranked). Test on 4 prompts with known gaps: explain v0.2.0 and v0.3.0, plus two deliberately broken ones.
+
 ## Stage 4 — the engine
 
 - [ ] Write `engine.md` from design doc section 6; feed it 10 rough requests and have the head compare its prompts with the library's hand-built ones.
 - [ ] Write `scripts/grade.py`-style instructions so a full test run + grading can happen in one round (roadmap step 5).
+
+## Stage 5 — developer and agent packs (MASTER_PLAN 6.2, 6.3, build order 6.6)
+
+- [ ] Code review (review / practitioner / code): real defects in a diff, ranked, each with a failing scenario; no style noise. Test on 6 diffs with planted bugs.
+- [ ] Bug diagnosis (diagnose / practitioner / code): symptoms and logs to ranked causes, each with the cheapest confirming check.
+- [ ] Commit message and PR description (draft / reviewer / code).
+- [ ] README writer (draft / first-time visitor / code).
+- [ ] Project context file: AGENTS.md / CLAUDE.md from a repo.
+- [ ] Skill author: a repeated procedure into an Agent Skill whose description triggers at the right time.
+- [ ] Subagent brief: goal, what is known, what done looks like, what to return.
+
+## Stage 6 — open up (MASTER_PLAN 7.6)
+
+- [ ] Scorecard generator: one table per built prompt from its run folders.
+- [ ] CONTRIBUTING.md, issue templates (failure report, tool request, model result), licence once the owner decides.
