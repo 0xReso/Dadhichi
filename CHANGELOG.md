@@ -22,3 +22,6 @@
 - built/explain.commuter.it.md 0.2.2 (draft): applies the head's v0.2.1 grading edits verbatim (simple-tier criterion and size from the core sentence, size-aware body test, unknown-tool rule, sections for moderate pieces, pace rule in the self-check) and the two source-confidence edits from the Alexa grading. Frozen in tests/pattern.explain/runs/v0.2.2/prompt.md. Not yet gate-reviewed.
 - rubric: 11 split into 11a Complete / 11b Unhurried; new checks 12 Unknown topic and 13 Source confidence; check 6 covers any "##" section. inputs: input 7 capped at 1,700 words; Alexa source added as input 9.
 - Gate review not run: the head model is out of usage credits.
+- Gate review of v0.2.2 (head on Opus, since the usual head model was out of credits): REVISE, 5 edits at the seams (unknown-tool admission in the line under the title, self-check covers sections, reader note shrinks the budget, one set of tier names, say confidence once).
+- built/explain.commuter.it.md 0.3.0 (draft): the five gate-review edits applied verbatim; minor bump per the design, since planning logic and output shape changed. Frozen in runs/v0.3.0/prompt.md. Rubric check 6 excludes "The whole picture" and "Going further".
+- Test run v0.3.0 started on inputs 1 (x3), 2, 3, 4, 5, 7, 9. Input 6 skipped: RFC 9111 could not be fetched from this session. Input 8 waits for a finance domain block.

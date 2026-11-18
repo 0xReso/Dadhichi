@@ -9,7 +9,7 @@ Yes/no checks. Grade with a different model from the one that wrote the output, 
 | 3 | Accurate | No technical error; real terminology is used |
 | 4 | Proportional | Within the prompt's budget: simple ≤600, moderate ≤2,200, deep ≤4,500 words |
 | 5 | No padding | No section could be deleted without leaving a gap |
-| 6 | Resumable | Each section or chapter (anything under a "##" heading) after the first restates what the reader holds so far |
+| 6 | Resumable | Each section or chapter (anything under a "##" heading, excluding "The whole picture" and "Going further") after the first restates what the reader holds so far |
 | 7 | Plain text | Reads correctly on an e-reader: no tables, links, images, nested lists, or wide code |
 | 8 | Not dumbed down | No fictional framing or characters; real names kept; analogies state where they break |
 | 9 | Trap handled | The most common misconception about the topic is named and corrected |

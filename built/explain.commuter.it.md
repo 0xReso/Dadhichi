@@ -1,8 +1,8 @@
 ---
 id: built.explain.commuter.it
 kind: built
-version: 0.2.2
-status: draft            # v0.2.2 applies the head's v0.2.1 grading edits (simple tier, unknown tool, sections, pace, source confidence)
+version: 0.3.0
+status: draft            # 0.3.0 = v0.2.1 grading edits + source confidence + v0.2.2 gate-review edits (minor bump: planning logic and output shape changed)
 job: Explain one IT concept so it is understood in a single linear read on an e-reader, with no lookups
 coordinates: explain / commuter / it
 inputs:
@@ -24,7 +24,7 @@ How to use: copy everything inside the block below, replace the three `{VARIABLE
 
 If the source block above is empty, work from your own knowledge. If it contains material, treat it as the authority for facts about the topic. You may reorder, compress, and leave out parts of it freely; your job is to make its core understood, not to cover everything it says.
 
-A source can hold material at different levels of confidence, for example confirmed statements next to research, estimates, or someone's guess. When the source says how far a part can be trusted, carry that through to the page, because the reader cannot tell a fact from a guess unless the sentence says which it is. Build the mechanism and the running example from the confirmed parts. Present unconfirmed parts as what the source says they are, and say where they come from in the source's own terms. State that something is unknown or unpublished only when the source says so; where the source is merely silent, say that the material you were given does not cover it.
+A source can hold material at different levels of confidence, for example confirmed statements next to research, estimates, or someone's guess. When the source says how far a part can be trusted, carry that through to the page, because the reader cannot tell a fact from a guess unless the sentence says which it is. Build the mechanism and the running example from the confirmed parts. Present unconfirmed parts as what the source says they are, and say where they come from in the source's own terms. Say it once, at the point where the confidence changes, not on every sentence, so the confirmed parts still read as plain statements. State that something is unknown or unpublished only when the source says so; where the source is merely silent, say that the material you were given does not cover it.
 
 Where you add something the source does not say, keep it to well-established knowledge and word it as general practice ("assistants of this kind usually...") rather than as a statement about this topic, so the reader can see which sentences rest on the source and which on you. This applies to "The whole picture" as much as to the body: a step you inferred stays marked as inferred there.
 
@@ -65,7 +65,7 @@ When an idea could go in two tiers, choose the lighter one. A reader can live wi
 
 8. Name the trap. Identify the most common misunderstanding of this topic and decide where in the path it would naturally arise, so you can correct it at that point.
 
-9. Set a word budget: one number, decided now and held to. Size it to the topic, not to an idea of thoroughness, and judge the size from your core sentence in step 1, not from the length of your list in step 2, because a long list makes any topic look bigger than it is. A topic is simple when its core is one thing with one job: a single object or value and what is done with it, with no chain of several stages or several machines that the reader has to follow in order. What a port number is, what a file extension is, and what a checksum is are simple. A simple topic gets about 450 words, never more than 600, written as continuous prose with no headings and no "The whole picture" section. At that size the mechanism is told once, in a few sentences inside the running example. The ideas that surround it, such as how the thing is stored, how it is protected in transit, or what it is commonly confused with, get one clause each or one line in "Going further". A moderate one, such as how a domain name is turned into a server address, gets about 1,500, never more than 2,200. A deep one, such as how a language model generates text or how two computers set up an encrypted connection, gets about 3,500, never more than 4,500, split into chapters. Aim for the typical figure. The room between it and the upper limit is for a topic whose mechanism has more steps than usual; spend it only on passages that pass the body test, never on Later-tier material. Long source material does not make the piece long; it means there is more to cut. If the notes above set a length, follow them instead.
+9. Set a word budget: one number, decided now and held to. Size it to the topic, not to an idea of thoroughness, and judge the size from your core sentence in step 1, not from the length of your list in step 2, because a long list makes any topic look bigger than it is. A topic is simple when its core is one thing with one job: a single object or value and what is done with it, with no chain of several stages or several machines that the reader has to follow in order. What a port number is, what a file extension is, and what a checksum is are simple. A simple topic gets about 450 words, never more than 600, written as continuous prose with no headings other than an optional "Going further" at the end, and no "The whole picture" section. At that size the mechanism is told once, in a few sentences inside the running example. The ideas that surround it, such as how the thing is stored, how it is protected in transit, or what it is commonly confused with, get one clause each or one line in "Going further". A moderate one, such as how a domain name is turned into a server address, gets about 1,500, never more than 2,200. A deep one, such as how a language model generates text or how two computers set up an encrypted connection, gets about 3,500, never more than 4,500, split into chapters. Aim for the typical figure. The room between it and the upper limit is for a topic whose mechanism has more steps than usual; spend it only on passages that pass the body test, never on Later-tier material. Long source material does not make the piece long; it means there is more to cut. When the notes say the reader already holds some of what the topic rests on, take the words those passages would have needed off the budget rather than spending them elsewhere, because a reader who knows the ground wants to reach the new part sooner. If the notes above set a length, follow them instead.
 </plan>
 
 <write>
@@ -121,10 +121,10 @@ No sentence relies on something that appears later, and no phrase inside a chapt
 Nothing the reader already knew is explained.
 Every passage passes the body test from your plan. Any that fails moves to "Going further" or is deleted.
 Estimate the word count. If it is over the budget from your plan, cut in this order: passages that fail the body test, repeated explanations of the same point, extra examples beyond the running one, then whole in-flow ideas the core can stand without. Remove an idea whole rather than squeezing the explanation of the ones that stay, because a compressed explanation is harder to follow on a bus than a longer piece. If everything left passes the body test and the piece is under the upper limit for its size, leave it as it is.
-No chapter ends with a summary of itself.
+No section or chapter ends with a summary of itself.
 The running example is used consistently and its numbers agree with each other.
 The common misconception is corrected where it arises.
-Each chapter, if there are chapters, can be picked up cold from its opening lines.
+Every "##" section or chapter after the first, apart from "The whole picture" and "Going further", opens with a sentence or two on what the reader now holds, so it can be picked up cold.
 Nothing needs a table, a link, an image, or wide code to make sense.
 Every technical claim is correct, and any uncertain point is marked as uncertain. If a source was given, every statement about the topic can be traced to it at the confidence the source gives it, and anything you added or inferred is worded as general practice or as inference, in the body and in "The whole picture".
 </check>
@@ -133,9 +133,9 @@ Every technical claim is correct, and any uncertain point is marked as uncertain
 Return only the article, in plain Markdown that renders cleanly on an e-reader:
 
 A title.
-One line under the title saying what the reader will understand by the end.
-The body: continuous prose for a short piece, or chapters under "##" headings for a longer one.
-For moderate and long pieces, a closing section titled "The whole picture": one paragraph showing how the pieces connect. This is not a list of everything said; it is the core sentence from your plan, now fully earned.
+One line under the title saying what the reader will understand by the end. If the topic is a named tool you have no reliable knowledge of, this line says that plainly instead, because it is the first thing the reader meets under the tool's name. That statement is written to the reader and is part of the article, not a note to the person who sent this.
+The body: continuous prose for a simple topic; three to five sections under "##" headings for a moderate one; chapters under "##" headings for a deep one.
+For moderate and deep pieces, a closing section titled "The whole picture": one paragraph showing how the pieces connect. This is not a list of everything said; it is the core sentence from your plan, now fully earned.
 Optionally, a final section titled "Going further" with two to four terms from the Later tier, each with one line on what it is, so the reader knows what to look up when they are back at a desk.
 
 Leave out your plan, any notes to the person who sent this, and any offer to expand.
