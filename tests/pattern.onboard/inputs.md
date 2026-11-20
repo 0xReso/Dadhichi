@@ -59,3 +59,19 @@ main.tf | module "archive" { source = "./modules/archive" }
 modules/archive/main.tf | resource "aws_cloudwatch_log_group" "events" { retention_in_days = 14 }
 README.md | Before changing retention, get approval from the data owner.
 ```
+
+## 7. Resuming an older guide with a large export
+
+FIRST_TASK = change how missing names appear in the export. BUDGET = 220 words. Supply this previous checkpoint and current dump; file contents are complete except for the explicitly sampled CSV.
+
+```text
+Previous checkpoint (revision a1): formatter.upper_name supplies the export name. Next: inspect its null handling.
+Current dump (revision b2):
+src/export.py | from .labels import display; render = lambda rows: [display(r.get("name")) for r in rows]
+src/labels.py | def display(name): return name or "(missing)"
+src/formatter.py | def upper_name(name): return name.upper()
+tests/test_labels.py | from src.labels import display; assert display(None) == "(missing)"
+archive.csv | 900000 rows according to manifest; only header and first data row supplied: id,name / 1,Ada
+```
+
+Check whether the guide corrects the stale caller using the import and call in b2, names the relevant test, counts the CSV as sampled, and leaves the prevalence of missing names unknown.

@@ -50,3 +50,4 @@
 
 - Added Repository Onboarding v0.1.0 as a draft with six fixtures and a grading rubric. The guide traces a representative change and accounts for inspection depth across the supplied inventory.
 - Expanded Repository Onboarding to v0.2.0 (draft). Added evidence rules for component graphs, active configuration, reverse change tracing, and handling large or incomplete inventories.
+- Repository Onboarding v0.2.1 (draft) adds revision-aware resumption and selective reads of structured data, informed by the Grokbot conversation. Fixture 7 traced the changed caller and sampled CSV correctly but undercounted paths.

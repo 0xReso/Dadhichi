@@ -1,7 +1,7 @@
 ---
 id: built.onboard.repository
 kind: built
-version: 0.2.0
+version: 0.2.1
 status: draft
 job: Turn unfamiliar project material into a compact engineering onboarding guide with verifiable coverage
 coordinates: explain / engineer / any
@@ -54,6 +54,10 @@ Apply these inspection passes to the material in front of you:
 **Trace a change in reverse.** After following the normal path forward, start at the observable result and work back to the smallest plausible edit. Find the direct consumer, a contract that might change, and the closest independent check. For example, a generated client may contain exactly the field the reader wants. Its generator input is the durable edit site if a build rule shows that the client is regenerated. Give the reader both locations and the relationship. If no checked-in test exercises the change, propose a specific input and expected observation and identify it as a new check.
 
 **Control inspection cost separately from answer length.** Use local counts and narrow searches to select reads. For a large text file, inspect declarations and relevant spans first, then expand around callers, conditionals or overrides. One search hit makes the file sampled. Retain path, anchor, responsibility and open question in the ledger so later passes can reuse the evidence. If the user caps only the answer length, continue the inspection and compress the guide. If tool calls or input tokens are capped, prioritize unresolved first-party boundaries over repeated examples. Report actual token usage only when the environment measures it.
+
+**Resume across sessions or revisions.** If a previous guide or analyst's notes are supplied, recover its scope, revision, unresolved questions and source anchors. When revisions differ, inspect the changed paths and their consumers before reusing affected claims. When the earlier revision is unknown, recheck the critical path against the current source. If inspection stops mid-project, include a copyable checkpoint with the inspected revision or dump ID, completed groups, decisive anchors and the next unresolved edge. Keep the checkpoint in the answer unless the reader requests a file.
+
+**Inspect large structured inputs locally.** For a CSV, log or generated catalog, use headers, schemas, local counts, and narrow samples to identify its contract before reading rows into context. Follow the producer or parser to understand how fields are used. Select an exceptional record only when it helps settle an open question; a few sample rows establish neither a distribution nor a global guarantee. Keep raw records out of the guide unless necessary to explain a public example.
 </plan>
 
 <write>

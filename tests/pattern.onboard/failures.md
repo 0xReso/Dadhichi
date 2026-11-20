@@ -1,1 +1,2 @@
 2026-11-20 | Fixture 1, v0.1.0 smoke | Budget | 254 whitespace-delimited words including headings and Markdown symbols, target under 250. The hypothetical change and negative-input discussion used much of the budget. Fix pending.
+2026-11-20 | Fixture 7, v0.2.1 smoke | Scope | Reported four paths instead of five and three Python files instead of four. Compare status groups with a path-by-path manifest before publishing totals. Fix pending.

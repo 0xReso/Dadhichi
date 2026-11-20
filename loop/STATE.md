@@ -16,7 +16,7 @@ The Grader is tested at v0.3.0 on Claude Sonnet. The rubric writer is a v0.2.0 d
 
 ## Repository onboarding
 
-2026-11-20. Expanded the [v0.2.0 draft](../built/onboard.repository.md) with file-level inspection passes, runtime selection, graph evidence, a reverse change trace, and concrete compression examples. The [v0.1.0 smoke run](../tests/pattern.onboard/runs/v0.1.0-smoke/README.md) remains the only recorded execution and applies to the prior version. Next, independently gate-review v0.2.0 and run the [six fixtures](../tests/pattern.onboard/inputs.md) against the [rubric](../tests/pattern.onboard/rubric.md). Include a held-out checkout to measure actual traversal. Promotion is pending.
+2026-11-20. The [timestamped Grokbot conversation analysis](../sources/grokbot-lauren-poteto.md) informed the [v0.2.1 draft](../built/onboard.repository.md). A [fresh fixture 7 smoke run](../tests/pattern.onboard/runs/v0.2.1-resume-smoke/README.md) recovered the revised caller and respected the word budget. It counted four supplied paths where there were five. Next, gate-review the census error and test a path-by-path reconciliation on fixture 7, then run the [seven fixtures](../tests/pattern.onboard/inputs.md) and a held-out checkout before considering promotion.
 
 ## Next round
 
