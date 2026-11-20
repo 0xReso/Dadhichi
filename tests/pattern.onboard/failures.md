@@ -1,0 +1,1 @@
+2026-11-20 | Fixture 1, v0.1.0 smoke | Budget | 254 whitespace-delimited words including headings and Markdown symbols, target under 250. The hypothetical change and negative-input discussion used much of the budget. Fix pending.

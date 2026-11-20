@@ -14,6 +14,10 @@ The earlier cloud reviewer requested exact v0.4.1 Markdown word counts. Raft inp
 
 The Grader is tested at v0.3.0 on Claude Sonnet. The rubric writer is a v0.2.0 draft with the five cloud gate edits applied and its test set updated. Ten GPT outputs have independent grades. Overlapping checks failed on eight samples. [Rubric writer evaluation](../tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md)
 
+## Repository onboarding
+
+2026-11-20. Added the [v0.1.0 source prompt](../built/onboard.repository.md) and [six test inputs](../tests/pattern.onboard/inputs.md). A [two-file smoke run](../tests/pattern.onboard/runs/v0.1.0-smoke/README.md) traced both files and exceeded the tiny-input word target. For this prompt, the next step is an independent gate review followed by the full fixture run against the [rubric](../tests/pattern.onboard/rubric.md).
+
 ## Next round
 
 Revise the rubric writer's overlap test using the concrete code-review and SQL failures. For the explainer, try moving unfamiliar labels out of an example's opening, test inputs 5 and 6 against the saved regressions, then run the full set if the targeted change holds. Keep the GPT and Claude comparisons separate. The local Claude CLI was signed out during this round.

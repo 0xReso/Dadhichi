@@ -45,3 +45,7 @@
 - built/explain.commuter.it.md 0.4.2 (patch): glosses that need a name count as new terms; second traps, variants and usage figures leave the body; no notation in the unknown-tool piece; the running example keeps its state; promise clauses caught, not only "next" phrases. Test run at n=2 on all nine inputs.
 - Explainer v0.4.2 compared with v0.4.0 on 36 matched GPT outputs. Candidate 73/22/12 versus baseline 75/14/18 on 107 shared cells. Two Pass-to-Fail changes. Retain v0.4.0 as the promoted draft.
 - Rubric writer v0.2.0 applies the five cloud gate edits. Nine input definitions, ten fresh samples, 110 individual verdicts. Overlap failed on eight samples. Keep draft.
+
+## 2026-11-20
+
+- Added Repository Onboarding v0.1.0 as a draft with six fixtures and a grading rubric. The guide traces a representative change and accounts for inspection depth across the supplied inventory.

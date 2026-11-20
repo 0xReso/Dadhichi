@@ -1,6 +1,6 @@
 # Dadhichi
 
-**Reusable prompts for writing explanations and checking whether they work.** Each prompt comes with examples, test inputs, and a record of where it succeeds or breaks. The goal is to let you choose a prompt for a particular reader and job, then see what evidence supports that choice.
+**Reusable prompts for understanding unfamiliar projects, writing explanations, and checking the results.** Each prompt comes with examples, test inputs, and a record of where it succeeds or breaks. The goal is to let you choose a prompt for a particular reader and job, then see what evidence supports that choice.
 
 [Try a prompt](#try-the-explainer) · [Read a finished article](articles/alexa-for-shopping/article.md) · [Resume development](loop/STATE.md)
 
@@ -20,6 +20,7 @@ For a source-backed example, see how the Alexa for Shopping article distinguishe
 
 | Prompt | When to use it | What the tests found |
 | --- | --- | --- |
+| [Repository Onboarding v0.1.0](built/onboard.repository.md) | Give an agent a checkout, archive, or project dump to get a mental model, reading route, and first change to verify. | **Draft.** Reports what it read, sampled, indexed, or could not access. [Test cases](tests/pattern.onboard/inputs.md) |
 | [Flow-Read Explainer v0.4.0](tests/pattern.explain/runs/v0.4.0/prompt.md) | Turn a topic and reader notes into an article for one uninterrupted read. | **Promoted draft.** Kept after the nine-topic comparison below. A human phone-read is pending. |
 | [Rubric Writer v0.2.0](built/rubric.md) | Turn a job description into checks you can score. | **Draft.** Review for double counting. In 8 of 10 samples, one mistake could fail multiple checks. [Evaluation](tests/pattern.rubric/runs/v0.2.0-gpt-6.2-sol/evaluation.md) |
 | [Grader v0.3.0](built/grade.md) | Give it an output and a rubric to get a verdict and evidence for each check. | **Tested on Claude Sonnet.** Recorded 94.5% agreement across 82 checks and caught all 10 planted faults. [Calibration](tests/pattern.grade/runs/v0.3.0/head-grading.md) |
