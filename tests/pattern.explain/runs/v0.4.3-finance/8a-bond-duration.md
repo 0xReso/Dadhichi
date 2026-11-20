@@ -4,11 +4,11 @@ By the end you will know what a bond's duration measures, how it is worked out, 
 
 ## Why bond prices move when rates move
 
-A bond is a loan you make by buying a piece of paper. A company or a government borrows money from you, and in return promises a fixed schedule of payments. Unlike a share in a company, a bond gives you no ownership; it gives you a set of promised payments and nothing else.
+A bond is a loan you make by buying a piece of paper. A company or a government borrows money from you, and in return promises a fixed schedule of payments.
 
 Take one bond and keep it in mind throughout. It promises to repay $1,000 in five years. That $1,000, the sum handed back at the end, is called the face value.
 
-Along the way, the bond also pays you $50 at the end of each year for five years. These regular payments are called coupons. This bond's coupon is 5 percent of its face value, paid once a year. Many real bonds pay twice a year, but once a year keeps the arithmetic clean.
+Along the way, the bond also pays you $50 at the end of each year for five years. These regular payments are called coupons. This bond's coupon is 5 percent of its face value, paid once a year.
 
 The date when the face value is repaid and the payments stop is called the maturity. Here it is five years away.
 
@@ -16,7 +16,7 @@ So the whole bond is a list of six promised payments: $50 after one year, two, t
 
 The payments are fixed, but the bond trades on a market, and its price can change every day. The reason is that interest rates elsewhere change. Suppose you bought this bond for $1,000, and next week new five-year bonds start paying 6 percent. Nobody will now pay you $1,000 for a bond that pays $50 a year when $1,000 buys $60 a year elsewhere. Your bond only sells if its price drops far enough that the buyer earns about 6 percent anyway. When rates rise, existing bond prices fall; when rates fall, they rise. Price and rate move in opposite directions.
 
-That raises the practical question every bond holder faces: if rates move by one percentage point, how much does my bond's price move? Some bonds barely flinch and others swing hard. Duration is the number that answers it, and to see where it comes from, you need one more idea about money and time.
+That raises the practical question: if rates move by one percentage point, how much does my bond's price move? Duration is the number that answers it, and to see where it comes from, you need one more idea about money and time.
 
 ## Waiting time, weighted by value
 
@@ -24,7 +24,7 @@ Your bond is a list of six payments spread over five years, and its price falls 
 
 A dollar paid in a year is worth less than a dollar now, because a dollar now could be put on deposit and earn interest. If you can earn 5 percent a year, $47.62 today grows to $50 in a year. So $50 arriving in a year is worth $47.62 to you today. That figure, a future payment shrunk back to what it is worth now at a given interest rate, is called its present value. The further away a payment is, the more it shrinks, because it has more years of missed interest to make up.
 
-The interest rate used for this shrinking is the bond's yield. Strictly, the yield is the one rate that, applied to every payment, makes their present values add up to the bond's market price. It is the yearly return a buyer locks in by paying that price and holding the bond to maturity. For your bond, priced at $1,000 with a 5 percent coupon, the yield is exactly 5 percent.
+The interest rate used for this shrinking is the bond's yield. Strictly, the yield is the one rate that, applied to every payment, makes their present values add up to the bond's market price. For your bond, priced at $1,000 with a 5 percent coupon, the yield is exactly 5 percent.
 
 Here are the six payments shrunk at 5 percent:
 
@@ -36,11 +36,11 @@ Here are the six payments shrunk at 5 percent:
 
 Add them and you get $1,000, the price. Now look at where that $1,000 sits in time. About 82 percent of the bond's value arrives in year five, and the remaining 18 percent arrives in small slices across the first four years.
 
-Now ask a simple question: on average, how long do you wait for your money? Not counting dollars as they are written on the bond, but counting each payment by what it is worth today. Multiply each payment's time by its share of the price and add up the results. Year one carries about 4.8 percent of the value, year two 4.5 percent, year three 4.3 percent, year four 4.1 percent and year five 82.3 percent. The weighted average comes to about 4.55 years.
+Now ask: on average, how long do you wait for your money, counting each payment by what it is worth today? Multiply each payment's time by its share of the price and add up the results. Year one carries about 4.8 percent of the value, year two 4.5 percent, year three 4.3 percent, year four 4.1 percent and year five 82.3 percent. The weighted average comes to about 4.55 years.
 
-That number is the bond's Macaulay duration, named after the economist Frederick Macaulay, who described it in the 1930s. It is the average time until you receive the bond's value, with each payment weighted by its present value. It is measured in years.
+That number is the bond's Macaulay duration, named after the economist who described it in the 1930s. It is the average time until you receive the bond's value, with each payment weighted by its present value. It is measured in years.
 
-This is the point where most people go wrong. Duration is not the same thing as maturity. Your bond matures in five years, but its duration is 4.55 years, because the coupons hand part of your money back early and pull the average forward. A bond with bigger coupons would have a shorter duration still. Only a bond that pays nothing until the end, called a zero-coupon bond, has a duration equal to its maturity: all its value arrives on one date, so the average wait is that date. Two bonds with the same maturity can have quite different durations, and it is the duration, not the maturity, that tells you how exposed each one is to rates.
+This is the point where most people go wrong. Duration is not the same thing as maturity. Your bond matures in five years, but its duration is 4.55 years, because the coupons hand part of your money back early and pull the average forward. Only a bond that pays nothing until the end, called a zero-coupon bond, has a duration equal to its maturity: all its value arrives on one date, so the average wait is that date. Two bonds with the same maturity can have quite different durations, and it is the duration, not the maturity, that tells you how exposed each one is to rates.
 
 Which leaves the question of how an average waiting time turns into a price change.
 
@@ -54,9 +54,9 @@ That adjusted figure is called modified duration. For your bond it is 4.55 divid
 
 Apply it. Suppose rates rise from 5 to 6 percent. Modified duration predicts a fall of about 4.33 percent of $1,000, so a new price near $956.70. Working out the six present values again at 6 percent gives the true new price: $957.88. The forecast is off by about a dollar.
 
-The same figure works at the scale traders talk in. Rates are usually quoted in basis points, where one basis point is one hundredth of a percentage point. A move of one basis point changes your bond's price by about 0.0433 percent, roughly 43 cents on $1,000. A bond portfolio manager who hears that rates jumped 20 basis points can multiply in their head and know they lost about 0.87 percent before checking a screen.
+The same figure works at the scale traders talk in. Rates are usually quoted in basis points, where one basis point is one hundredth of a percentage point. A move of one basis point changes your bond's price by about 0.0433 percent, roughly 43 cents on $1,000.
 
-This is why duration matters so much in practice. It turns a whole schedule of payments into a single number that ranks bonds by risk to interest rates. A bond with a modified duration of 10 will move roughly twice as much as yours for the same change in rates; one with a duration of 2 will move less than half as much. The number is quick to use, but it comes from a straight-line approximation, so the next question is where that straight line parts from reality.
+Duration turns a whole schedule of payments into a single number that ranks bonds by risk to interest rates. A bond with a modified duration of 10 will move roughly twice as much as yours for the same change in rates; one with a duration of 2 will move less than half as much. The number is quick to use, but it comes from a straight-line approximation, so the next question is where that straight line parts from reality.
 
 ## Where the forecast stops working
 
@@ -66,9 +66,9 @@ The true relationship between price and yield is not a straight line but a curve
 
 The second limit is that duration is a snapshot. It is worked out at today's yield and today's date. When the yield changes, the present-value weights change, so the duration changes too: at a higher yield, distant payments shrink more, so their share of the price falls and the duration gets a little shorter. And as time passes, the bond moves toward maturity and its duration shrinks. Next year, your bond will be a four-year bond with a shorter duration. A forecast is only good for the moment its duration was calculated.
 
-The third limit sits in an assumption about the bond itself: that its payments are fixed. Your bond's six payments are promised and do not change when rates move. Some bonds let the borrower repay early, usually when rates have fallen and borrowing again is cheaper. For those, the payment schedule itself depends on rates, so the simple calculation above misdescribes them, and analysts use a different method that models how the payments would change.
+The third limit is the assumption that the payments are fixed. Some bonds let the borrower repay early, usually after rates have fallen. For those, the payment schedule itself depends on rates, so the calculation above misdescribes them.
 
-The last limit concerns what duration measures in the first place. It is a measure of sensitivity to interest rates, and of nothing else. It says nothing about whether the borrower will pay. A bond from a shaky company and one from a stable government can share the same duration while carrying very different risks of not being repaid.
+Finally, duration measures sensitivity to interest rates and says nothing about whether the borrower will pay. A shaky company's bond and a stable government's can share a duration while carrying very different risks of not being repaid.
 
 ## The whole picture
 
