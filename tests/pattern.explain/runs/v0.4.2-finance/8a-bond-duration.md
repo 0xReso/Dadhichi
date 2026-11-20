@@ -40,7 +40,7 @@ A bond's price is the sum of its discounted payments, and a rise in yield hurts 
 
 Take each payment's present value as a share of the bond's price of 1,000. The year-one payment is 4.8% of the value, year two 4.5%, year three 4.3%, year four 4.1%, and year five 82.3%. Multiply each year number by its share and add the results: one times 4.8%, plus two times 4.5%, and so on up to five times 82.3%. The total comes to about 4.55 years.
 
-That figure, the average time until each unit of the bond's present value arrives, weighted by how much value arrives when, is the bond's Macaulay duration, named after the economist Frederick Macaulay, who set it out in 1938. When people say a bond's "duration" without qualification, they often mean this figure or the closely related one in the next section.
+That figure, the average time until each unit of the bond's present value arrives, weighted by how much value arrives when, is the bond's Macaulay duration, named after the economist Frederick Macaulay, who set it out in 1938.
 
 A picture that carries the real arithmetic: lay a plank along a timeline from year zero to year five, and stand a weight on it at each payment date, sized by that payment's present value. Four small weights sit at years one to four and one large weight at year five. The point where the plank balances is at 4.55 years. The picture stops being accurate the moment yields change, because the weights are present values and every one of them shifts when the yield does, which moves the balance point too.
 
