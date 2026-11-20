@@ -20,10 +20,16 @@ Since then:
 - Explainer v0.4.0 PROMOTED (released). v0.4.1 = the head's five v0.4.0 edits; 13 outputs written (input 6 now uses the design doc as long source). Head grading of v0.4.1 in progress -> runs/v0.4.1/head-grading.md.
 - Grader v0.2.0 graded: NOT USABLE (89% agreement, 9/10 recall, lenient on padding). Grader v0.3.0 written; test set gained conventions.md, relabels and saved filled prompts. v0.3.0 run (8 inputs, Sonnet) in progress -> tests/pattern.grade/runs/v0.3.0/.
 
+Since then:
+- Grader 0.3.0 is TESTED (94.5% agreement, 10/10 recall, on claude-sonnet-5-5).
+- Explainer: 0.4.1 not promoted; 0.4.2 not promoted (tie on Passes; 1b over 600 words); 0.4.3 = the head's v0.4.2 edits. Released explainer is still 0.4.0.
+- Rubric writer 0.2.0 written after a gate review; its test run has not started.
+
 Exact next steps:
-1. When runs/v0.4.1/head-grading.md exists: promote or not; if TESTED, set status/verified_on and add the scorecard to README; else apply its edits as v0.4.2 and rerun.
-2. When the 8 grader v0.3.0 outputs exist: head grades them against the reference (with relabels) and planted faults -> tests/pattern.grade/runs/v0.3.0/head-grading.md.
-3. Then the next meta tools in BACKLOG Stage 3a (rubric writer, test input writer, cold reader).
+1. When the 18 v0.4.3 outputs (runs/v0.4.3, runs/v0.4.3-finance) and the 3 extra v0.4.0 samples (runs/v0.4.0/1b, 4b, 5b) exist: head grades v0.4.3 against v0.4.0 at matched n=2 -> runs/v0.4.3/head-grading.md. Promote / tested decision.
+2. Rubric writer 0.2.0 test run: 11 outputs (inputs 1, 1b, 2-8, input 7 twice), then head grading.
+3. BACKLOG Stage 3a: test input writer, cold reader.
 
 Decisions for the owner:
-- The head ran on Opus (claude-opus-5-5) because Fable 5.2 was out of credits. Builder and test writers are also Opus, so independence is weaker than the design asks; regrade with Fable when credits return. Grader tests run on Sonnet.
+- The head ran on Opus (claude-opus-5-5) because Fable 5.2 was out of credits. Builder and test writers are also Opus; grader tests run on Sonnet. Regrade with Fable when credits return.
+- The human phone check on explain inputs 1 and 2 (design section 7) has not been done; it needs a person.
