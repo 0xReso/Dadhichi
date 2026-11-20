@@ -49,3 +49,4 @@
 ## 2026-11-20
 
 - Added Repository Onboarding v0.1.0 as a draft with six fixtures and a grading rubric. The guide traces a representative change and accounts for inspection depth across the supplied inventory.
+- Expanded Repository Onboarding to v0.2.0 (draft). Added evidence rules for component graphs, active configuration, reverse change tracing, and handling large or incomplete inventories.
