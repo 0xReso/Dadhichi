@@ -18,6 +18,12 @@ Each "build pattern X" item means the full cycle, done over several rounds:
 - [ ] Explain: test a revision for the first-use regressions on inputs 5 and 6. Complete the human phone-read on inputs 1 and 2 before marking the prompt tested.
 - [ ] Figures modifier: test `modifiers/figures.md` with the explainer on inputs 2, 3 and Alexa; head grades the four figure checks.
 
+## Stage 1b — upskill quiz
+
+- [x] Build the quiz prompt, tests and rubric; gate review; test v0.2.0 on inputs 1, 3, 4, 5 (Opus) and inputs 1, 3, 4, 5, 7, 9 (Gemini 4 Neon, graded by `gpt-6.2-astra`).
+- [ ] Gate-review v0.3.0, then rerun matched inputs and head-grade against v0.2.0 within each model family (promote only with no Pass-to-Fail). Confirm effect timing is still tested twice on input 1, contrast pairs survive on input 3, and Q54 (`ON CONFLICT DO NOTHING` in RR) is fixed.
+- [ ] Run the remaining untested inputs on v0.3.0: 2 event loop, 6 vague (Kubernetes), and 8 chess pawn endgames.
+
 ## Stage 2 — prove composition (design doc roadmap step 2)
 
 - [ ] Split the promoted explainer into `kernel.md`, `patterns/explain.md`, `readers/commuter.md`, `domains/it.md`; check the reassembled prompt is word-for-word the promoted one.
