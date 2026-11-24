@@ -7,12 +7,12 @@
     .l{animation:in .4s ease-out both}
     @keyframes in{from{opacity:0}to{opacity:1}}
     @media (prefers-reduced-motion:reduce){.l{animation:none}}
-    .k{fill:#87867f}.w{fill:#141413}.c{fill:#d97757}.p{fill:#3d3d3a}.a{fill:#b05730}
+    .k{fill:#9c9a92}.w{fill:#faf9f5}.c{fill:#d97757}.p{fill:#e8e6dc}.a{fill:#e8956f}
   </style>
-  <rect x=".5" y=".5" width="879" height="429" rx="16" fill="#faf9f5" stroke="#e3dfd3"/>
-  <text x="32" y="44" class="s w" font-size="20">Repository Onboarding</text>
+  <rect x=".5" y=".5" width="879" height="429" rx="16" fill="#141413" stroke="#3d3d3a"/>
+  <text x="32" y="44" class="s c" font-size="20">Repository Onboarding</text>
   <text x="848" y="44" text-anchor="end" class="m k" font-size="13">test fixture 2</text>
-  <line x1="32" y1="62" x2="848" y2="62" stroke="#e3dfd3"/>
+  <line x1="32" y1="62" x2="848" y2="62" stroke="#3d3d3a"/>
   <g class="m">
     <text x="32" y="98" class="l" style="animation-delay:.2s"><tspan class="c">&gt;</tspan><tspan class="w"> onboard.repository  PROJECT=./invoices  FIRST_TASK="change the invoice limit"</tspan></text>
 
@@ -27,7 +27,7 @@
     <text x="32" y="296" class="l" style="animation-delay:3.3s"><tspan class="k">edit</tspan><tspan x="126" class="p">packages/contracts/limit.js</tspan><tspan class="k">  then correct the stale README</tspan></text>
     <text x="32" y="332" class="l" style="animation-delay:3.9s"><tspan class="k">verify</tspan><tspan x="126" class="p">apps/api/submit.test.js</tspan><tspan class="k">  run by .github/workflows/check.yml</tspan></text>
 
-    <line x1="32" y1="362" x2="848" y2="362" stroke="#e3dfd3" class="l" style="animation-delay:4.4s"/>
+    <line x1="32" y1="362" x2="848" y2="362" stroke="#3d3d3a" class="l" style="animation-delay:4.4s"/>
     <text x="32" y="396" class="l" style="animation-delay:4.6s"><tspan class="c">✓</tspan><tspan class="w"> Guide ready.</tspan><tspan class="k"> Five-minute read. Every claim cites a path.</tspan></text>
   </g>
 </svg>

@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="780" height="236" viewBox="0 0 780 236" role="img" aria-labelledby="title desc">
 <title id="title">Two explainer versions, 107 verdicts each</title>
 <desc id="desc">In order of pass, borderline, fail, v0.4.0 scored 75, 14, 18. The candidate scored 73, 22, 12.</desc>
-<rect width="780" height="236" rx="18" fill="#f8f6ee"/>
-<g fill="#17343a" font-family="Helvetica,Arial,sans-serif" font-size="20">
-<text x="28" y="43" font-size="28" font-weight="700">Two versions, 107 verdicts each</text>
-<rect x="29" y="67" width="16" height="16" fill="#236958"/><text x="55" y="82">Pass</text>
-<rect x="138" y="67" width="16" height="16" fill="#efd393"/><text x="164" y="82">Borderline</text>
-<rect x="306" y="67" width="16" height="16" fill="#a84637"/><text x="332" y="82">Fail</text>
-<text x="28" y="135" font-weight="700">v0.4.0</text>
-<rect x="127.0" y="108" width="435.0" height="40" fill="#236958"/><text fill="white" x="344.5" y="135" text-anchor="middle">75</text>
-<rect x="562.0" y="108" width="81.2" height="40" fill="#efd393"/><text fill="#372c10" x="602.6" y="135" text-anchor="middle">14</text>
-<rect x="643.2" y="108" width="104.4" height="40" fill="#a84637"/><text fill="white" x="695.4" y="135" text-anchor="middle">18</text>
-<text x="28" y="196" font-weight="700">v0.4.2</text>
-<rect x="127.0" y="169" width="423.4" height="40" fill="#236958"/><text fill="white" x="338.7" y="196" text-anchor="middle">73</text>
-<rect x="550.4" y="169" width="127.6" height="40" fill="#efd393"/><text fill="#372c10" x="614.2" y="196" text-anchor="middle">22</text>
-<rect x="678.0" y="169" width="69.6" height="40" fill="#a84637"/><text fill="white" x="712.8" y="196" text-anchor="middle">12</text>
+<rect x=".5" y=".5" width="779" height="235" rx="16" fill="#141413" stroke="#3d3d3a"/>
+<g fill="#faf9f5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17">
+<text x="28" y="45" font-family="Georgia,'Times New Roman',serif" font-size="24" fill="#d97757">Two versions, 107 verdicts each</text>
+<rect x="29" y="68" width="14" height="14" rx="2" fill="#e8e6dc"/><text x="52" y="81" fill="#9c9a92">pass</text>
+<rect x="120" y="68" width="14" height="14" rx="2" fill="#5e5d59"/><text x="143" y="81" fill="#9c9a92">borderline</text>
+<rect x="268" y="68" width="14" height="14" rx="2" fill="#d97757"/><text x="291" y="81" fill="#9c9a92">fail</text>
+<text x="28" y="134">v0.4.0</text>
+<rect x="127.0" y="108" width="435.0" height="40" fill="#e8e6dc"/><text fill="#141413" x="344.5" y="134" text-anchor="middle">75</text>
+<rect x="562.0" y="108" width="81.2" height="40" fill="#5e5d59"/><text x="602.6" y="134" text-anchor="middle">14</text>
+<rect x="643.2" y="108" width="104.4" height="40" fill="#d97757"/><text fill="#141413" x="695.4" y="134" text-anchor="middle">18</text>
+<text x="28" y="195">v0.4.2</text>
+<rect x="127.0" y="169" width="423.4" height="40" fill="#e8e6dc"/><text fill="#141413" x="338.7" y="195" text-anchor="middle">73</text>
+<rect x="550.4" y="169" width="127.6" height="40" fill="#5e5d59"/><text x="614.2" y="195" text-anchor="middle">22</text>
+<rect x="678.0" y="169" width="69.6" height="40" fill="#d97757"/><text fill="#141413" x="712.8" y="195" text-anchor="middle">12</text>
 </g></svg>

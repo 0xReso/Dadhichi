@@ -62,3 +62,4 @@
 - .claude/skills/upskill-quiz/: Claude Code skill wrapping the prompt (/upskill-quiz <topic> [depth] [mode]), saving to quizzes/<slug>/, grading filled sheets and building review sets from misses; README with usage and quality bar.
 - README.md: rewritten around codebase onboarding, after studying the uv, VHS, fzf and bat READMEs. Adds a centered header, a terminal hero (docs/visuals/hero-terminal.svg, illustrating fixture 2), a naive-vs-spec diff, highlights, a quick start, an evidence-first prompt table and the promotion loop.
 - README.md: restyled after the Claude Code, Skills, Cookbooks and Courses READMEs. Plain left-aligned prose, a numbered quick start, list-style prompt entries with evidence, a status note, and the hero redrawn in a warm ivory, slate and clay palette.
+- docs/visuals: hero and version chart redrawn in dark slate (#141413) and clay orange (#D97757).
