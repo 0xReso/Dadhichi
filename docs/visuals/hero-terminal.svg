@@ -1,33 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="420" viewBox="0 0 880 420" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="430" viewBox="0 0 880 430" role="img" aria-labelledby="t d">
   <title id="t">Repository Onboarding on a five-file monorepo</title>
   <desc id="d">A terminal runs the Repository Onboarding prompt on a small invoice monorepo with the task of changing the invoice limit. The guide reports that all five files were read, flags that the README says 20 items while packages/contracts/limit.js enforces 12, traces a 13-item submission to rejected, names limit.js as the edit site, and names the test and workflow that verify the change.</desc>
   <style>
     .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px}
-    .l{animation:in .35s ease-out both}
-    @keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-    .k{fill:#7d8b99}.w{fill:#e6edf3}.g{fill:#7ee2a8}.a{fill:#f5c46b}.c{fill:#79c0ff}.p{fill:#d2a8ff}
-    @media (prefers-reduced-motion:reduce){.l{animation:none;opacity:1}}
+    .s{font-family:Georgia,'Times New Roman',serif}
+    .l{animation:in .4s ease-out both}
+    @keyframes in{from{opacity:0}to{opacity:1}}
+    @media (prefers-reduced-motion:reduce){.l{animation:none}}
+    .k{fill:#87867f}.w{fill:#141413}.c{fill:#d97757}.p{fill:#3d3d3a}.a{fill:#b05730}
   </style>
-  <rect width="880" height="420" rx="14" fill="#0d1117"/>
-  <rect width="880" height="40" rx="14" fill="#161b22"/>
-  <rect y="26" width="880" height="14" fill="#161b22"/>
-  <circle cx="24" cy="20" r="6" fill="#ff5f57"/><circle cx="44" cy="20" r="6" fill="#febc2e"/><circle cx="64" cy="20" r="6" fill="#28c840"/>
-  <text x="440" y="25" text-anchor="middle" class="m k" font-size="13">dadhichi — onboard.repository v0.2.1</text>
+  <rect x=".5" y=".5" width="879" height="429" rx="16" fill="#faf9f5" stroke="#e3dfd3"/>
+  <text x="32" y="44" class="s w" font-size="20">Repository Onboarding</text>
+  <text x="848" y="44" text-anchor="end" class="m k" font-size="13">test fixture 2</text>
+  <line x1="32" y1="62" x2="848" y2="62" stroke="#e3dfd3"/>
   <g class="m">
-    <text x="28" y="78" class="l" style="animation-delay:.2s"><tspan class="g">›</tspan><tspan class="w"> onboard.repository </tspan><tspan class="c">PROJECT</tspan><tspan class="w">=./invoices </tspan><tspan class="c">FIRST_TASK</tspan><tspan class="w">="change the invoice limit"</tspan></text>
+    <text x="32" y="98" class="l" style="animation-delay:.2s"><tspan class="c">&gt;</tspan><tspan class="w"> onboard.repository  PROJECT=./invoices  FIRST_TASK="change the invoice limit"</tspan></text>
 
-    <text x="28" y="120" class="l" style="animation-delay:.9s"><tspan class="k">scope</tspan><tspan x="122" class="w">5 files · </tspan><tspan class="g">5 read</tspan><tspan class="k"> · 0 sampled · 0 indexed · 0 unavailable</tspan></text>
+    <text x="32" y="140" class="l" style="animation-delay:.9s"><tspan class="k">scope</tspan><tspan x="126" class="w">5 files · 5 read</tspan><tspan class="k"> · 0 sampled · 0 indexed · 0 unavailable</tspan></text>
 
-    <text x="28" y="156" class="l" style="animation-delay:1.5s"><tspan class="k">conflict</tspan><tspan x="122" class="a">README.md says 20 items · code enforces 12</tspan></text>
-    <text x="28" y="180" class="l" style="animation-delay:1.8s"><tspan x="122" class="p">packages/contracts/limit.js</tspan><tspan class="w"> → limit = 12</tspan></text>
+    <text x="32" y="176" class="l" style="animation-delay:1.5s"><tspan class="k">conflict</tspan><tspan x="126" class="a">README.md says 20 items; the code enforces 12</tspan></text>
+    <text x="32" y="200" class="l" style="animation-delay:1.8s"><tspan x="126" class="p">packages/contracts/limit.js</tspan><tspan class="k">  limit = 12</tspan></text>
 
-    <text x="28" y="216" class="l" style="animation-delay:2.4s"><tspan class="k">trace</tspan><tspan x="122" class="w">submit(13 items) → 13 &lt;= 12? no → </tspan><tspan class="a">'rejected'</tspan></text>
-    <text x="28" y="240" class="l" style="animation-delay:2.7s"><tspan x="122" class="p">apps/api/submit.js</tspan><tspan class="k"> imports limit from contracts</tspan></text>
+    <text x="32" y="236" class="l" style="animation-delay:2.4s"><tspan class="k">trace</tspan><tspan x="126" class="w">submit(13 items) → 13 &lt;= 12 is false → 'rejected'</tspan></text>
+    <text x="32" y="260" class="l" style="animation-delay:2.7s"><tspan x="126" class="p">apps/api/submit.js</tspan><tspan class="k">  imports limit from contracts</tspan></text>
 
-    <text x="28" y="276" class="l" style="animation-delay:3.3s"><tspan class="k">edit</tspan><tspan x="122" class="p">packages/contracts/limit.js</tspan><tspan class="k">  (the README is stale; fix it too)</tspan></text>
-    <text x="28" y="312" class="l" style="animation-delay:3.9s"><tspan class="k">verify</tspan><tspan x="122" class="p">apps/api/submit.test.js</tspan><tspan class="k"> · run by </tspan><tspan class="p">.github/workflows/check.yml</tspan></text>
+    <text x="32" y="296" class="l" style="animation-delay:3.3s"><tspan class="k">edit</tspan><tspan x="126" class="p">packages/contracts/limit.js</tspan><tspan class="k">  then correct the stale README</tspan></text>
+    <text x="32" y="332" class="l" style="animation-delay:3.9s"><tspan class="k">verify</tspan><tspan x="126" class="p">apps/api/submit.test.js</tspan><tspan class="k">  run by .github/workflows/check.yml</tspan></text>
 
-    <text x="28" y="360" class="l" style="animation-delay:4.6s"><tspan class="g">✓</tspan><tspan class="w"> guide ready · five-minute read · every claim cites a path</tspan></text>
-    <rect x="28" y="378" width="9" height="17" fill="#7ee2a8" class="l" style="animation-delay:5s"/>
+    <line x1="32" y1="362" x2="848" y2="362" stroke="#e3dfd3" class="l" style="animation-delay:4.4s"/>
+    <text x="32" y="396" class="l" style="animation-delay:4.6s"><tspan class="c">✓</tspan><tspan class="w"> Guide ready.</tspan><tspan class="k"> Five-minute read. Every claim cites a path.</tspan></text>
   </g>
 </svg>
